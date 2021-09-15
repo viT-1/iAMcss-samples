@@ -1,149 +1,149 @@
-﻿/**** vp-tree__list */
-*[vp-tree__label *= -sttOpen-] + *[vp-tree__list]{
+﻿/* #region iam-tree-list */
+[iam-tree-label ~= sttOpen] + [iam-tree-list] {
 	display: block;
 }
 
-*[vp-tree__label *= -sttClose-] + *[vp-tree__list]{
+[iam-tree-label ~= sttClose] + [iam-tree-list] {
 	display: none;
 }
 
-*[vp-tree__list *= -lstInner-]{
+[iam-tree-list ~= lstInner] {
 	padding: 0;
 }
 
-*[vp-tree__item]{
+[iam-tree-item] {
+	font-family: Arial;
+	list-style: none;
 	margin: 0;
 	padding: 0;
-	list-style: none;
-	font-family: Arial;
 }
 
-*[vp-tree__label]{
-	position: relative;
+[iam-tree-label] {
 	color: black;
+	position: relative;
 }
 
-*[vp-tree__label *= -sttActive-]{
+[iam-tree-label ~= sttActive] {
 	background: black;
 	color: white;
 }
 
-*[vp-tree__label]:before{
+[iam-tree-label]:before {
 	position: absolute;
 }
 
-*[vp-tree__label *= -sttLeaf-]{
+[iam-tree-label ~= sttLeaf] {
 	cursor: default;
 }
 
-*[vp-tree__label *= -sttOpen-]
-, *[vp-tree__label *= -sttClose-]{
+[iam-tree-label ~= sttOpen]
+, [iam-tree-label ~= sttClose] {
 	cursor: pointer;
 }
 
-/**** vp-tree__list -spcIco18px- */
-*[vp-tree__list *= -lstInner--spcIco18px-]{
+/* #region iam-tree-list spcIco18px */
+[iam-tree-list *= "lstInner spcIco18px"] {
 	margin: 0 0 0 23px;
 }
 
-*[vp-tree__label *= -spcIco18px-]{
-	margin: 0 0 0 24px;
+[iam-tree-label ~= spcIco18px] {
 	font-size: 18px;
 	line-height: 24px;
+	margin: 0 0 0 24px;
 }
 
-*[vp-tree__label *= -spcIco18px-]::before{
+[iam-tree-label ~= spcIco18px]::before {
 	top: 2px;
 	left: -24px;
 }
 
-*[vp-tree__label *= -sknWindows--sttOpen--spcIco18px-]::before{
+[iam-tree-label *= "sknWindows sttOpen spcIco18px"]::before {
 	content: url('material-design-icons/file/folder-open.svg');
 }
 
-*[vp-tree__label *= -sknWindows--sttClose--spcIco18px-]::before{
+[iam-tree-label *= "sknWindows sttClose spcIco18px"]::before {
 	content: url('material-design-icons/file/folder.svg');
 }
 
-*[vp-tree__label *= -sknWindows--sttLeaf--spcIco18px-]::before{
+[iam-tree-label *= "sknWindows sttLeaf spcIco18px"]::before {
 	content: url('material-design-icons/action/article.svg');
 }
-/* vp-tree__list -spcIco18px- ****/
+/* #endregion iam-tree-list spcIco18px ****/
 
-/**** vp-tree__list -spcIco24px- */
-*[vp-tree__list *= -lstInner--spcIco24px-]{
+/* #region iam-tree-list spcIco24px */
+[iam-tree-list *= "lstInner spcIco24px"] {
 	margin: 0 0 0 30px;
 }
 
-*[vp-tree__label *= -spcIco24px-]{
+[iam-tree-label ~= spcIco24px] {
 	margin: 0 0 0 32px;
 	font-size: 24px;
 	line-height: 32px;
 }
 
-*[vp-tree__label *= -spcIco24px-]::before{
+[iam-tree-label ~= spcIco24px]::before {
 	left: -32px;
 	top: 3px;
 }
 
-*[vp-tree__label *= -sknWindows--sttOpen--spcIco24px-]::before{
+[iam-tree-label *= "sknWindows sttOpen spcIco24px"]::before {
 	content: url('material-design-icons/file/folder-open.svg');
 }
 
-*[vp-tree__label *= -sknWindows--sttClose--spcIco24px-]::before{
+[iam-tree-label *= "sknWindows sttClose spcIco24px"]::before {
 	content: url('material-design-icons/file/folder.svg');
 }
 
-*[vp-tree__label *= -sknWindows--sttLeaf--spcIco24px-]::before{
+[iam-tree-label *= "sknWindows sttLeaf spcIco24px"]::before {
 	content: url('material-design-icons/action/article.svg');
 }
-/* vp-tree__list -spcIco24px- ****/
+/* #region iam-tree-list spcIco24px */
 
-/**** vp-tree__list -spcIco48px- */
-*[vp-tree__list *= -lstInner--spcIco48px-]{
+/* #region iam-tree-list spcIco48px */
+[iam-tree-list *= "lstInner spcIco48px"] {
 	margin: 0 0 0 60px;
 }
 
-*[vp-tree__label *= -spcIco48px-]{
+[iam-tree-label ~= spcIco48px] {
 	margin: 0 0 0 64px;
 	font-size: 48px;
 	line-height: 64px;
 }
 
-*[vp-tree__label *= -spcIco48px-]::before{
+[iam-tree-label ~= spcIco48px]::before {
 	left: -64px;
 	top: 4px;
 }
 
-*[vp-tree__label *= -sknWindows--sttOpen--spcIco48px-]::before{
+[iam-tree-label *= "sknWindows sttOpen spcIco48px"]::before {
 	content: url('material-design-icons/file/folder-open.svg');
 }
 
-*[vp-tree__label *= -sknWindows--sttClose--spcIco48px-]::before{
+[iam-tree-label *= "sknWindows sttClose spcIco48px"]::before {
 	content: url('material-design-icons/file/folder.svg');
 }
 
-*[vp-tree__label *= -sknWindows--sttLeaf--spcIco48px-]::before{
+[iam-tree-label *= "sknWindows sttLeaf spcIco48px"]::before {
 	content: url('material-design-icons/action/article.svg');
 }
-/* vp-tree__list -spcIco48px- ****/
+/* #region iam-tree-list spcIco48px */
 
-/**** vp-tree__list ie8 without svg fix */
-.ie8 *[vp-tree__label]:before{
+/* #region iam-tree-list ie8 without svg fix */
+.ie8 [iam-tree-label]:before{
 	left: -2ex;
 }
 
-.ie8 *[vp-tree__label *= "-sttOpen-"]:before{
+.ie8 [iam-tree-label ~= sttOpen]:before {
 	content: '▼ ';
 }
 
-.ie8 *[vp-tree__label *= "-sttClose-"]:before{
+.ie8 [iam-tree-label ~= sttClose]:before {
 	content: '▲ ';
 }
 
-.ie8 *[vp-tree__label *= "-sttLeaf-"]:before{
+.ie8 [iam-tree-label ~= sttLeaf]:before {
 	content: '► ';
 }
-/* vp-tree__list ie8 without svg fix ****/
+/* #endregion iam-tree-list ie8 without svg fix */
 
-/* vp-tree__list ****/
+/* #endregion iam-tree-list */

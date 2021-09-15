@@ -1,19 +1,28 @@
+(function() {
+var cssQueryStrings = {
+	bookListId: 'wgtBooks',
+	stateAttribute: 'iam-tree-label',
+	stateActive: 'sttActive',
+	stateOpen: 'sttOpen',
+	stateCollapsed: 'sttClose'
+};
+
 var cVpCommon = {
 	addAttrValNoDelim: function( o, attr_name,  val ){
 		if ( !o.hasAttribute( attr_name ) ) {
 			var attr = document.createAttribute( attr_name );
-			attr.value = ''
+			attr.value = '';
 			o.setAttributeNode( attr );
 		}
 		
-		var re = new RegExp( "(^|\\s)" + val + "(\\s|$)", "g" );
+		var re = new RegExp( '(^|\\s)' + val + '(\\s|$)', 'g' );
 		var attr_val = o.getAttribute( attr_name );
 		if ( re.test( attr_val ) ) return;
 		
-		attr_val = attr_val + val;
+		attr_val = attr_val + ' ' + val;
 		o.setAttribute( attr_name, attr_val );
 		
-		//ie8 fix
+		// ie8 fix
 		if (this.ie < 9)
 			o.className = o.className;
 	}
@@ -22,10 +31,10 @@ var cVpCommon = {
 		if ( !o.hasAttribute( attr_name ) ) return;
 
 		var attr_val = o.getAttribute( attr_name );
-		attr_val = attr_val.replace( val, "" );
+		attr_val = attr_val.replace( val, '' );
 		o.setAttribute( attr_name, attr_val );
 		
-		//ie8 fix
+		// ie8 fix
 		if (this.ie < 9)
 			o.className = o.className;
 	}
@@ -46,7 +55,7 @@ var cVpCommon = {
 		if ( !is_a && !is_b )
 			this.addAttrValNoDelim( o, attr_name, val_b );
 		
-		//ie8 fix
+		// ie8 fix
 		if (this.ie < 9)
 			o.className = o.className;
 	}
@@ -74,13 +83,21 @@ function setIeBody(){
 }
 
 function appendEventHandlers(){
-	//На обработку щелчка выбираем только те элементы, которые содержат подсписки
+	// На обработку щелчка выбираем только те элементы, которые содержат подсписки
 	var placeholder = document.getElementById('wgtBooks');
-	var clickFolders = placeholder.querySelectorAll('*[vp-tree__label *= "-sttOpen-"], *[vp-tree__label *= "-sttClose-"]');
+
+	// ie11 don't support template literals =(
+	var clickFolders = placeholder.querySelectorAll(
+		'[' + cssQueryStrings.stateAttribute + '~=' + cssQueryStrings.stateOpen + '],'
+		+ '[' + cssQueryStrings.stateAttribute + '~=' + cssQueryStrings.stateCollapsed + ']');
 	
 	function folderOnClick(e){
 		var target = e.target ? e.target : e.srcElement; //IE8
-		cVpCommon.toggleAttrVal(target, 'vp-tree__label', '-sttOpen-', '-sttClose-');
+		cVpCommon.toggleAttrVal(
+			target,
+			cssQueryStrings.stateAttribute,
+			cssQueryStrings.stateOpen,
+			cssQueryStrings.stateCollapsed);
 		
 		//ie8 fix
 		if (cVpCommon.ie < 9){
@@ -92,19 +109,27 @@ function appendEventHandlers(){
 	
 	for (var i = 0; i < clickFolders.length; i++){
 		if (clickFolders[i].addEventListener)
-			clickFolders[i].addEventListener("click", folderOnClick, false );
+			clickFolders[i].addEventListener('click', folderOnClick, false );
 		else
-			clickFolders[i].attachEvent("onclick", folderOnClick);
+			clickFolders[i].attachEvent('onclick', folderOnClick);
 	}
 	
 	function labelOnClick(e){
 		var target = e.target ? e.target : e.srcElement; //IE8
-		var attrVal = target.getAttribute('vp-tree__label');
-		var prevActive = placeholder.querySelector('*[vp-tree__label *= "-sttActive-"]');
+		var attrVal = target.getAttribute(cssQueryStrings.stateAttribute);
+		var prevActive = placeholder.querySelector(
+			'[' + cssQueryStrings.stateAttribute + '~=' + cssQueryStrings.stateActive + ']');
+
 		if (prevActive)
-			cVpCommon.removeAttrValNoDelim(prevActive, 'vp-tree__label', '-sttActive-');
+			cVpCommon.removeAttrValNoDelim(
+				prevActive,
+				cssQueryStrings.stateAttribute,
+				cssQueryStrings.stateActive);
 			
-		cVpCommon.addAttrValNoDelim(target, 'vp-tree__label', '-sttActive-');
+		cVpCommon.addAttrValNoDelim(
+			target,
+			cssQueryStrings.stateAttribute,
+			cssQueryStrings.stateActive);
 		
 		//ie8 fix
 		if (cVpCommon.ie < 9){
@@ -114,14 +139,15 @@ function appendEventHandlers(){
 		}
 	}
 	
-	var clickActiveLabels = placeholder.querySelectorAll('*[vp-tree__label]');
+	var clickActiveLabels = placeholder.querySelectorAll('[' + cssQueryStrings.stateAttribute + ']');
 	for (var i = 0; i < clickActiveLabels.length; i++){
 		if (clickActiveLabels[i].addEventListener)
-			clickActiveLabels[i].addEventListener("click", labelOnClick, false );
+			clickActiveLabels[i].addEventListener('click', labelOnClick, false );
 		else
-			clickActiveLabels[i].attachEvent("onclick", labelOnClick);
+			clickActiveLabels[i].attachEvent('onclick', labelOnClick);
 	}
 }
 
 setIeBody();
 appendEventHandlers();
+})();

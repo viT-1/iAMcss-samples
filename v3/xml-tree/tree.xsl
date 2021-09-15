@@ -13,28 +13,28 @@
 <xsl:variable name="modSkin" select="'sknWindows'" />
 
 <xsl:template match="*[@id = 'wgtBooks']/*">
-	<xsl:apply-templates select="." mode="tree__list">
+	<xsl:apply-templates select="." mode="tree-list">
 		<xsl:with-param name="wgtId" select="../@id" />
 	</xsl:apply-templates>
 </xsl:template>
 
-<xsl:template match="ul" mode="tree__list">
+<xsl:template match="ul" mode="tree-list">
 	<xsl:param name="wgtId" />
 	
 	<xsl:variable name="listMods">
-		-<xsl:choose>
-			<xsl:when test="$wgtId"><xsl:value-of select="$wgtId" />--lstRoot</xsl:when>
+		<xsl:choose>
+			<xsl:when test="$wgtId"><xsl:value-of select="$wgtId" />lstRoot</xsl:when>
 			<xsl:otherwise>lstInner</xsl:otherwise>
-		</xsl:choose>--<xsl:value-of select="$modIcoSize" />-
+		</xsl:choose><xsl:text> </xsl:text><xsl:value-of select="$modIcoSize" />
 	</xsl:variable>
 	
-	<ul vp-tree__list="">
-		<xsl:attribute name="vp-tree__list"><xsl:value-of select="$listMods" /></xsl:attribute>
-		<xsl:apply-templates select="li" mode="tree__item" />
+	<ul iam-tree-list="">
+		<xsl:attribute name="iam-tree-list"><xsl:value-of select="$listMods" /></xsl:attribute>
+		<xsl:apply-templates select="li" mode="tree-item" />
 	</ul>
 </xsl:template>
 
-<xsl:template match="li" mode="tree__item">
+<xsl:template match="li" mode="tree-item">
 	<xsl:variable name="sttNode">
 		<xsl:choose>
 			<xsl:when test="ul/li/ul">sttOpen</xsl:when>
@@ -43,8 +43,8 @@
 		</xsl:choose>
 	</xsl:variable>
 	
-	<li vp-tree__item=""><span vp-tree__label="-{$modSkin}--{$sttNode}--{$modIcoSize}-"><xsl:value-of select="text()" /></span>
-		<xsl:apply-templates select="ul" mode="tree__list" />
+	<li iam-tree-item=""><span iam-tree-label="{$modSkin} {$sttNode} {$modIcoSize}"><xsl:value-of select="text()" /></span>
+		<xsl:apply-templates select="ul" mode="tree-list" />
 	</li>
 </xsl:template>
 
