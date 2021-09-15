@@ -58,15 +58,15 @@
 }
 
 [iam-tree-label *= "sknWindows sttOpen spcIco18px"]::before {
-	content: url('material-design-icons/file/folder-open.svg');
+	content: url('../../svg/material-design-icons/file/folder-open.svg');
 }
 
 [iam-tree-label *= "sknWindows sttClose spcIco18px"]::before {
-	content: url('material-design-icons/file/folder.svg');
+	content: url('../../svg/material-design-icons/file/folder.svg');
 }
 
 [iam-tree-label *= "sknWindows sttLeaf spcIco18px"]::before {
-	content: url('material-design-icons/action/article.svg');
+	content: url('../../svg/material-design-icons/action/article.svg');
 }
 /* #endregion iam-tree-list spcIco18px ****/
 
@@ -87,15 +87,15 @@
 }
 
 [iam-tree-label *= "sknWindows sttOpen spcIco24px"]::before {
-	content: url('material-design-icons/file/folder-open.svg');
+	content: url('../../svg/material-design-icons/file/folder-open.svg');
 }
 
 [iam-tree-label *= "sknWindows sttClose spcIco24px"]::before {
-	content: url('material-design-icons/file/folder.svg');
+	content: url('../../svg/material-design-icons/file/folder.svg');
 }
 
 [iam-tree-label *= "sknWindows sttLeaf spcIco24px"]::before {
-	content: url('material-design-icons/action/article.svg');
+	content: url('../../svg/material-design-icons/action/article.svg');
 }
 /* #region iam-tree-list spcIco24px */
 
@@ -116,15 +116,15 @@
 }
 
 [iam-tree-label *= "sknWindows sttOpen spcIco48px"]::before {
-	content: url('material-design-icons/file/folder-open.svg');
+	content: url('../../svg/material-design-icons/file/folder-open.svg');
 }
 
 [iam-tree-label *= "sknWindows sttClose spcIco48px"]::before {
-	content: url('material-design-icons/file/folder.svg');
+	content: url('../../svg/material-design-icons/file/folder.svg');
 }
 
 [iam-tree-label *= "sknWindows sttLeaf spcIco48px"]::before {
-	content: url('material-design-icons/action/article.svg');
+	content: url('../../svg/material-design-icons/action/article.svg');
 }
 /* #region iam-tree-list spcIco48px */
 
