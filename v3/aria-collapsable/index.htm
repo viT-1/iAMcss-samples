@@ -1,0 +1,87 @@
+﻿<html iam-theme="sea">
+<head>
+<title>iAMсss aria toolbar with collapsable controls & single/multiple dropdowns selected example</title>
+<!--local IE11 should use style, not link-->
+<!--https://github.com/nuxodin/ie11CustomProperties/issues/90-->
+<link rel="stylesheet" type="text/css" href="aria-collapsable.css" />>
+<meta charset="UTF-8" />
+<script>window.MSInputMethodContext && document.documentMode && document.write('<script src="ie11CustomProperties.min.js"><\/script>');</script>
+</head>
+<body iam-body>
+<div iam-pane="main" role="structure">
+	<input iam-state="tab-over" type="radio" name="pane[1]-tab-selected" id="tab-over-is-shown" checked/>
+	<input iam-state="tab-under" type="radio" name="pane[1]-tab-selected" id="tab-under-is-shown"/>
+	<input iam-state="iam-pane is-collapsed by-click" type="checkbox" id="pane[1]-is-collapsed"/>
+	
+	<header iam-pane-header role="sectionhead">
+		<label iam-pane-title iam-collapse-btn="iam-pane by-click" role="heading"
+			for="pane[1]-is-collapsed" id="pane[1]-head">Humanoid</label>
+		<span iam-tab-list="iam-pane-header" role="tablist">
+			<label iam-tab-title="over" role="tab" for="tab-over-is-shown">Paranoid</label>
+			<label iam-tab-title="under" role="tab" for="tab-under-is-shown">Android</label>
+		</span>
+	</header>
+	<div iam-pane-content iam-collapse-area="by-click" role="section" aria-labeledby="pane[1]-head" aria-hidden="false">
+		<menu iam-tool-list role="toolbar">
+			<!--Only one role on one node, thats why li instead of div role="listbox menuitem"-->
+			<input iam-state="is-collapsed by-hover" type="checkbox" id="sel-pair-is-collapsed" checked/>
+			<li iam-cbx="sel-pair" iam-collapse-hover iam-tool role="listbox" aria-haspopup="true">
+				<label iam-cbx-selected for="sel-pair-is-collapsed"
+					iam-collapse-btn="iam-cbx by-hover" role="button">Young & Pretty</label>
+				<ul iam-cbx-list="sel-pair" iam-collapse-area="by-hover" role="select" aria-multiselectable="true" aria-hidden="true">
+					<li iam-cbx-item>
+						<input iam-state type="checkbox" id="sel-pair[1]" name="selPair" checked />
+						<label iam-cbx-option role="option" for="sel-pair[1]">Young</label>
+					</li>
+					<li iam-cbx-item>
+						<input iam-state type="checkbox" id="sel-pair[2]" name="selPair" />
+						<label iam-cbx-option role="option" for="sel-pair[2]">Clever</label>
+					</li>
+					<li iam-cbx-item>
+						<input iam-state type="checkbox" id="sel-pair[3]" name="selPair" checked />
+						<label iam-cbx-option role="option" for="sel-pair[3]">Pretty</label>
+					</li>
+				</ul>
+			</li>
+			<input iam-state="is-collapsed by-click" type="checkbox" id="sel-name-is-collapsed" checked/>
+			<li iam-cbx="sel-name" iam-tool role="listbox" aria-haspopup="true">
+				<label iam-cbx-selected for="sel-name-is-collapsed"
+					iam-collapse-btn="iam-cbx by-click" role="button">Love</label>
+				<ul iam-cbx-list="sel-name" iam-collapse-area="by-click" role="select" aria-hidden="true">
+					<li>
+						<label iam-cbx-group-title role="heading">Russian</label>
+						<ul iam-cbx-group-list>
+							<li iam-cbx-item>
+								<input iam-state type="radio" id="sel-name[1]" name="selName" />
+								<label iam-cbx-option="grouped" role="option" for="sel-name[1]">Faith</label>
+							<li iam-cbx-item>
+								<input iam-state type="radio" id="sel-name[2]" name="selName" />
+								<label iam-cbx-option="grouped" role="option" for="sel-name[2]">Nadezhda</label>
+							<li iam-cbx-item>
+								<input iam-state type="radio" id="sel-name[3]" name="selName" checked />
+								<label iam-cbx-option="grouped" role="option" for="sel-name[3]">Love</label>
+						</ul>
+					<li>
+						<label iam-cbx-group-title role="heading">Ukrainian</label>
+						<ul iam-cbx-group-list>
+							<li iam-cbx-item>
+								<input iam-state type="radio" id="sel-name[4]" name="selName" />
+								<label iam-cbx-option="grouped" role="option" for="sel-name[4]">Glory</label>
+						</ul>
+				</ul>
+			</li>
+			<input iam-btn="iam-tool-list" iam-tool type="button" value="҈" title="Заказать цветы" />
+		</menu>
+		<div>
+			<div iam-tab-pane="over" role="tabpanel">
+				<label iam-tbx-label="iam-tab-pane" for="q-main">Main Question:</label>
+				<input iam-tbx="iam-tab-pane" role="textbox" type="text" value="" placeholder="Any" id="q-main"/>
+			</div>
+			<div iam-tab-pane="under" role="tabpanel">
+				<p iam-p="iam-tab-pane">UnderStand</p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

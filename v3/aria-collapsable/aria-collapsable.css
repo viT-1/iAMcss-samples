@@ -1,0 +1,380 @@
+﻿/*
+:::: CSS folding for vscode ::::
+https://github.com/microsoft/vscode/issues/46591
+https://code.visualstudio.com/docs/languages/css#_folding
+
+:::: Google CSS guide ::::
+https://google.github.io/styleguide/htmlcssguide.html#CSS_Formatting_Rules
+
+:::: id attribute naming rules ::::
+https://stackoverflow.com/questions/70579/what-are-valid-values-for-the-id-attribute-in-html
+*/
+
+/*
+:::: ARIA hell ::::
+https://www.w3.org/TR/wai-aria/roles
+https://www.w3.org/TR/wai-aria-practices/
+https://www.w3.org/TR/html-aria/#docconformance
+http://heydonworks.com/practical_aria_examples/
+
+:::: BEM by attributes ::::
+iAMcss https://github.com/viT-1/iAMcss/blob/master/styleguide.md
+
+Sorry for though css selectors< just because of nojs.
+
+:::: CSS selectors codeguide ::::
+http://codeguide.academy/html-css.html#css-syntax
+*/
+[iam-theme ~= swamp] {
+	--thmHue: 115;
+	--thmSat: 20%;
+}
+
+[iam-theme ~= sea] {
+	--thmHue: 215;
+	--thmSat: 20%;
+}
+
+[iam-body] {
+	--clrShoalBack: hsla(var(--thmHue), var(--thmSat), 28%, 1);
+	--clrRaseBack: hsla(var(--thmHue), var(--thmSat), 14%, 1);
+	--clrBaseBack: hsla(var(--thmHue), var(--thmSat), 7%, 1);
+	--clrDeepBack: hsla(var(--thmHue), var(--thmSat), 3.5%, 1);
+	--clrShoalFrnt: #fff;
+	--clrRaseFrnt: hsla(var(--thmHue), var(--thmSat), 56%, 1);
+	--clrBaseFrnt: var(--clrShoalBack);
+	--clrDeepFrnt: var(--clrBaseBack);
+	
+	--sz_xxx: 3ex;
+	--sz_xx: 2ex;
+	--sz_x: 1ex;
+	--sz_s: .5ex;
+	--sz_m: 1em;
+	--thin: 1px;
+	
+	--ffmBase: Verdana;
+	--flhBase: 2rem; /* line-height */
+}
+
+[iam-body] {
+	background: var(--clrDeepBack);
+	color: var(--clrBaseFrnt);
+	font-family: var(--ffmBase, sans-serif);
+}
+
+[iam-state] {
+	display: none;
+}
+
+/* #region iam-pane */
+[iam-pane ~= main] {
+	width: 75%;
+}
+
+[iam-pane-header] {
+	background: var(--clrRaseBack);
+	border-top: solid var(--thin) var(--clrBaseFrnt);
+	cursor: default;
+	font-size: var(--sz_xx);
+	margin-bottom: 2px;
+	padding: var(--sz_x) var(--sz_xx);
+}
+
+/* instead of using mix: iam-tab-list iam-pane-header-tab-list */
+[iam-tab-list ~= iam-pane-header] {
+	float: right;
+}
+
+[iam-pane-title] {
+	color: var(--clrRaseFrnt);
+	font-weight: bolder;
+}
+
+[iam-pane-content] {
+	background: var(--clrBaseBack);
+	height: 150px;
+}
+[iam-collapse-btn ~= iam-pane]::after {
+	margin: 0 0 0 var(--sz_s);
+}
+/* #endregion */
+
+/* #region iam-tab */
+[iam-tab-list] {
+	border-bottom: solid var(--thin);
+}
+
+[iam-tab-title] {
+	cursor: pointer;
+}
+
+[iam-tab-pane] {
+	display: none;
+	padding: var(--sz_x) var(--sz_xx);
+}
+
+[iam-state ~= tab-over]:checked
+~ * [iam-tab-pane ~= over]
+, [iam-state ~= tab-under]:checked
+~ * [iam-tab-pane ~= under] {
+	display: block;
+}
+
+[iam-state ~= tab-over]:checked
+~ * [iam-tab-title ~= over]
+, [iam-state ~= tab-under]:checked
+~ * [iam-tab-title ~= under] {
+	border-bottom-color: var(--clrRaseFrnt);
+	border-bottom-style: solid;
+	border-bottom-width: var(--thin);
+	
+	color: var(--clrRaseFrnt);
+	cursor: default;
+}
+/* #endregion */
+
+/* #region iam-tool */
+[iam-tool-list] {
+	border-bottom: solid var(--thin);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+[iam-tool] {
+	border-top: solid var(--thin) transparent;
+	display: inline-block;
+	line-height: var(--flhBase);
+}
+
+[iam-tool]:hover {
+	border-top-color: var(--clrBaseFrnt);
+}
+
+:first-child
++ [iam-tool] {
+	margin: 0 0 0 var(--sz_x);
+}
+/* #endregion */
+
+/* #region iam-cbx */
+[iam-cbx] {
+	position: relative;
+}
+
+[iam-cbx-selected] {
+	background: transparent;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	font-family: var(--ffmBase, sans-serif);
+	padding: 0 var(--sz_x);
+}
+
+[iam-cbx-list] {
+	background:	var(--clrRaseBack);
+	border-top: solid var(--thin);
+	border-top-color: var(--clrRaseFrnt);
+	opacity: .8;
+	position: absolute;
+	width: 100%;
+}
+
+[iam-cbx-list ~= sel-name] {
+	width: 134px;
+}
+
+[iam-cbx-list]
+, [iam-cbx-group-list] {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+[iam-cbx-group-title]
+, [iam-cbx-option] {
+	border-top: solid var(--thin);
+	border-top-color: var(--clrBaseFrnt);
+	color: var(--clrRaseFrnt);
+}
+
+[iam-cbx-group-title] {
+	border-top-color: var(--clrRaseFrnt);
+}
+
+[iam-cbx-option]:hover {
+	background:	var(--clrShoalBack);
+	cursor: pointer;
+}
+
+[iam-cbx-group-title]
+, [iam-cbx-option] {
+	display: block;
+	line-height: var(--flhBase);
+	padding: 0 var(--sz_x);
+}
+
+[iam-cbx-option ~= grouped] {
+	padding-left: var(--sz_xxx);
+}
+
+[iam-cbx-group-title] {
+	font-weight: bolder;
+}
+
+[iam-cbx-group-title] {
+	background: var(--clrRaseFrnt);
+	color: var(--clrRaseBack);
+}
+
+[iam-cbx-item]:first-child [iam-cbx-option] {
+	border-top: none;
+}
+
+[iam-state]:checked
++ [iam-cbx-option] {
+	color: var(--clrShoalFrnt);
+}
+
+[iam-state]:checked
++ [iam-cbx-option]::after {
+	float: right;
+	margin-left: var(--sz_x);
+}
+
+[type = checkbox]:checked
++ [iam-cbx-option]::after{
+	content: '√';
+}
+
+[type = radio]:checked
++ [iam-cbx-option]::after{
+	content: '●';
+}
+
+[type = radio]:checked
++ [iam-cbx-option] {
+	cursor: default;
+}
+
+/* #region iam-cbx onclick dropdown */
+[iam-state *= "is-collapsed by-click"]
++ [iam-cbx] {
+	background:	var(--clrRaseBack);
+}
+
+[iam-state *= "is-collapsed by-click"]:checked
++ [iam-cbx] {
+	background:	transparent;
+}
+
+[iam-state *= "is-collapsed by-click"]
++ * [iam-cbx-selected] {
+	color: var(--clrRaseFrnt);
+}
+
+[iam-state *= "is-collapsed by-click"]:checked
++ * [iam-cbx-selected] {
+	color: var(--clrBaseFrnt);
+}
+/* #endregion iam-cbx onclick dropdown */
+
+/* hover & click dropdown highlight */
+[iam-cbx]:hover [iam-cbx-selected] {
+	color: var(--clrRaseFrnt);
+}
+
+/* #region iam-cbx:hover dropdown */
+[iam-state *= "is-collapsed by-hover"]
++ [iam-cbx]:hover {
+	background:	var(--clrRaseBack);
+}
+*/
+/* #endregion iam-cbx:hover dropdown */
+/* #endregion iam-cbx */
+
+/* #region iam-collapse */
+[iam-collapse-area ~= by-click] {
+	display: block;
+}
+
+/* all nested collapsable areas?! */
+[iam-collapse-area ~= by-hover]
+, [iam-state *= "is-collapsed by-click"]:checked
+~ [iam-collapse-area ~= by-click]
+, [iam-state *= "is-collapsed by-click"]:checked
++ * [iam-collapse-area ~= by-click] /*iam-cbx*/ {
+	display: none;
+}
+
+[iam-collapse-hover]:hover [iam-collapse-area ~= by-hover] {
+	display: block;
+}
+
+[iam-collapse-btn] {
+	cursor: pointer;
+}
+
+[iam-collapse-btn]::after {
+	font-size: smaller;
+	margin-left: var(--sz_s);
+}
+
+[iam-state *= "is-collapsed by-click"]
++ * [iam-collapse-btn ~= by-click]::after
+, [iam-collapse-hover]:hover [iam-collapse-btn ~= by-hover]::after {
+	content: '▲';
+}
+
+[iam-collapse-btn ~= by-hover]::after
+, [iam-state *= "is-collapsed by-click"]:checked
++ * [iam-collapse-btn ~= by-click]::after {
+	content: '▼';
+}
+/* #endregion iam-collapse */
+
+/* #region iam-tbx */
+[iam-tbx] {
+	background:	var(--clrDeepBack);
+	border: solid var(--thin);
+	border-color: var(--clrBaseFrnt);
+	color: var(--clrBaseFrnt);
+	display: inline-block;
+	font-size: var(--sz_m);
+	height: var(--flhBase);
+	padding: 0 var(--sz_x);
+}
+
+[iam-tbx]:hover
+, [iam-tbx]:focus {
+	border-color: var(--clrRaseFrnt);
+	color: var(--clrRaseFrnt);
+}
+/* #endregion iam-tbx */
+
+/* #region iam-btn */
+[iam-btn] {
+	background: transparent;
+	border: solid var(--thin);
+	border-color: transparent;
+	color: var(--clrBaseFrnt);
+	cursor: pointer;
+	font-size: var(--sz_m);
+	line-height: var(--flhBase);
+	margin: 0;
+	padding: 0 var(--sz_xx);
+}
+
+[iam-btn]:hover {
+	background: var(--clrRaseBack);
+	color: var(--clrRaseFrnt);
+}
+/* #endregion iam-btn */
+
+/* #region iam-tab-pane content */
+[iam-p ~= iam-tab-pane]
+, [iam-tbx ~= iam-tab-pane] {
+	margin: 0 0 var(--sz_x);
+	line-height: var(--flhBase);
+}
+/* #endregion iam-tab-pane content */
