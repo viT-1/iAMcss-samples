@@ -1,0 +1,149 @@
+﻿/* #region iam-tree-list */
+[iam-tree-label ~= sttOpen] + [iam-tree-list] {
+	display: block;
+}
+
+[iam-tree-label ~= sttClose] + [iam-tree-list] {
+	display: none;
+}
+
+[iam-tree-list ~= lstInner] {
+	padding: 0;
+}
+
+[iam-tree-item] {
+	font-family: Arial;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+[iam-tree-label] {
+	color: black;
+	position: relative;
+}
+
+[iam-tree-label ~= sttActive] {
+	background: black;
+	color: white;
+}
+
+[iam-tree-label]:before {
+	position: absolute;
+}
+
+[iam-tree-label ~= sttLeaf] {
+	cursor: default;
+}
+
+[iam-tree-label ~= sttOpen]
+, [iam-tree-label ~= sttClose] {
+	cursor: pointer;
+}
+
+/* #region iam-tree-list spcIco18px */
+[iam-tree-list *= "lstInner spcIco18px"] {
+	margin: 0 0 0 23px;
+}
+
+[iam-tree-label ~= spcIco18px] {
+	font-size: 18px;
+	line-height: 24px;
+	margin: 0 0 0 24px;
+}
+
+[iam-tree-label ~= spcIco18px]::before {
+	top: 2px;
+	left: -24px;
+}
+
+[iam-tree-label *= "sknWindows sttOpen spcIco18px"]::before {
+	content: url('../../svg/material-design-icons/file/folder-open.svg');
+}
+
+[iam-tree-label *= "sknWindows sttClose spcIco18px"]::before {
+	content: url('../../svg/material-design-icons/file/folder.svg');
+}
+
+[iam-tree-label *= "sknWindows sttLeaf spcIco18px"]::before {
+	content: url('../../svg/material-design-icons/action/article.svg');
+}
+/* #endregion iam-tree-list spcIco18px ****/
+
+/* #region iam-tree-list spcIco24px */
+[iam-tree-list *= "lstInner spcIco24px"] {
+	margin: 0 0 0 30px;
+}
+
+[iam-tree-label ~= spcIco24px] {
+	margin: 0 0 0 32px;
+	font-size: 24px;
+	line-height: 32px;
+}
+
+[iam-tree-label ~= spcIco24px]::before {
+	left: -32px;
+	top: 3px;
+}
+
+[iam-tree-label *= "sknWindows sttOpen spcIco24px"]::before {
+	content: url('../../svg/material-design-icons/file/folder-open.svg');
+}
+
+[iam-tree-label *= "sknWindows sttClose spcIco24px"]::before {
+	content: url('../../svg/material-design-icons/file/folder.svg');
+}
+
+[iam-tree-label *= "sknWindows sttLeaf spcIco24px"]::before {
+	content: url('../../svg/material-design-icons/action/article.svg');
+}
+/* #region iam-tree-list spcIco24px */
+
+/* #region iam-tree-list spcIco48px */
+[iam-tree-list *= "lstInner spcIco48px"] {
+	margin: 0 0 0 60px;
+}
+
+[iam-tree-label ~= spcIco48px] {
+	margin: 0 0 0 64px;
+	font-size: 48px;
+	line-height: 64px;
+}
+
+[iam-tree-label ~= spcIco48px]::before {
+	left: -64px;
+	top: 4px;
+}
+
+[iam-tree-label *= "sknWindows sttOpen spcIco48px"]::before {
+	content: url('../../svg/material-design-icons/file/folder-open.svg');
+}
+
+[iam-tree-label *= "sknWindows sttClose spcIco48px"]::before {
+	content: url('../../svg/material-design-icons/file/folder.svg');
+}
+
+[iam-tree-label *= "sknWindows sttLeaf spcIco48px"]::before {
+	content: url('../../svg/material-design-icons/action/article.svg');
+}
+/* #region iam-tree-list spcIco48px */
+
+/* #region iam-tree-list ie8 without svg fix */
+.ie8 [iam-tree-label]:before{
+	left: -2ex;
+}
+
+.ie8 [iam-tree-label ~= sttOpen]:before {
+	content: '▼ ';
+}
+
+.ie8 [iam-tree-label ~= sttClose]:before {
+	content: '▲ ';
+}
+
+.ie8 [iam-tree-label ~= sttLeaf]:before {
+	content: '► ';
+}
+/* #endregion iam-tree-list ie8 without svg fix */
+
+/* #endregion iam-tree-list */

@@ -1,6 +1,6 @@
 (function() {
 var cssQueryStrings = {
-	bookListId: 'wgtBooks',
+	appContainerId: 'wgtBooks',
 	stateAttribute: 'iam-tree-label',
 	stateActive: 'sttActive',
 	stateOpen: 'sttOpen',
@@ -84,7 +84,7 @@ function setIeBody(){
 
 function appendEventHandlers(){
 	// На обработку щелчка выбираем только те элементы, которые содержат подсписки
-	var placeholder = document.getElementById('wgtBooks');
+	var placeholder = document.getElementById(cssQueryStrings.appContainerId);
 
 	// ie11 don't support template literals =(
 	var clickFolders = placeholder.querySelectorAll(

@@ -23,7 +23,7 @@
 	
 	<xsl:variable name="listMods">
 		<xsl:choose>
-			<xsl:when test="$wgtId"><xsl:value-of select="$wgtId" />lstRoot</xsl:when>
+			<xsl:when test="$wgtId"><xsl:value-of select="$wgtId" /><xsl:text> </xsl:text>lstRoot</xsl:when>
 			<xsl:otherwise>lstInner</xsl:otherwise>
 		</xsl:choose><xsl:text> </xsl:text><xsl:value-of select="$modIcoSize" />
 	</xsl:variable>
