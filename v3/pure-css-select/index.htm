@@ -1,0 +1,22 @@
+<link rel="stylesheet" type="text/css" href="pure-css-select.css" />
+<div iam-radio-select>
+	<div iam-radio-select-frame>
+		<input iam-radio-select-state="closed" type="radio" name="sel-01" id="sel-01-c" value="none" checked />
+		<input iam-radio-select-state="open" type="radio" name="sel-01" id="sel-01-o" value="none" />
+		<label iam-radio-select-placeholder="toopen" for="sel-01-o">Select something</label>
+		<label iam-radio-select-placeholder="toclose" for="sel-01-c">Select something</label>
+		
+		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[1]" value="first" />
+		<label iam-radio-select-item for="sel-01[1]">Australia</label>
+		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[2]" value="second" />
+		<label iam-radio-select-item for="sel-01[2]">Belgium</label>
+		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[3]" value="third" />
+		<label iam-radio-select-item for="sel-01[3]">Croatia</label>
+		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[4]" value="fourth" />
+		<label iam-radio-select-item for="sel-01[4]">Russia</label>
+		
+		<label iam-radio-select-ddbtn="toopen" for="sel-01-o">▼</label>
+		<label iam-radio-select-ddbtn="toclose" for="sel-01-c">▲</label>
+	</div>
+</div>
+<button onclick="alert(document.querySelector('[name=sel-01]:checked').value)">show selected value</button>

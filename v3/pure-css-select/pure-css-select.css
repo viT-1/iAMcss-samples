@@ -1,0 +1,75 @@
+[iam-radio-select] {
+	display: inline-block;
+	height: 2em;
+	position: relative;
+	width: 150px;
+}
+
+[iam-radio-select-state] {
+	display: none;
+}
+
+[iam-radio-select-frame] {
+	border: solid 1px #000;
+	cursor: pointer;
+	position: absolute;
+	width: 100%;
+}
+
+[iam-radio-select-ddbtn] {
+	background: #fff;
+	padding: 0 .5ex 0 0;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	top: 0;
+	width: 2ex;
+	z-index: 2;
+}
+
+[iam-radio-select-state ~= open]:checked
+~ [iam-radio-select-ddbtn ~= toopen]
+, [iam-radio-select-state ~= closed]:checked
+~ [iam-radio-select-ddbtn ~= toclose]
+, [iam-radio-select-state ~= val]
+~ [iam-radio-select-ddbtn ~= toclose] {
+	z-index: 1;
+}
+
+[iam-radio-select-item]
+, [iam-radio-select-placeholder]
+, [iam-radio-select-ddbtn] {
+	cursor: pointer;
+	display: block;
+	line-height: 2em;
+}
+
+[iam-radio-select-item]
+, [iam-radio-select-placeholder] {
+	max-height: 0;
+	overflow: hidden;
+	padding: 0 2ex 0 1ex;
+	white-space: nowrap;
+}
+
+[iam-radio-select-state ~= val]:checked
++ [iam-radio-select-item] {
+	background: lime;
+}
+
+[iam-radio-select-state ~= open]:checked
+~ [iam-radio-select-item]
+, [iam-radio-select-state ~= open]:checked
+~ [iam-radio-select-placeholder ~= toclose]
+, [iam-radio-select-state ~= closed]:checked
+~ [iam-radio-select-placeholder ~= toopen]
+, [iam-radio-select-state ~= val]:checked
++ [iam-radio-select-item] {
+	max-height: 2em;
+}
+
+[iam-radio-select-state ~= open]:checked
+~ [iam-radio-select-item]:hover {
+	background: #777;
+	color: #fff;
+}
