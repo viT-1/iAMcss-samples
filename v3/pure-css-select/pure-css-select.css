@@ -5,7 +5,9 @@
 	width: 150px;
 }
 
-[iam-radio-select-state] {
+[iam-radio-select-val]
+, [iam-radio-select-isopen]
+, [iam-radio-select-undef] {
 	display: none;
 }
 
@@ -18,6 +20,7 @@
 
 [iam-radio-select-ddbtn] {
 	background: #fff;
+	display: block;
 	padding: 0 .5ex 0 0;
 	position: absolute;
 	right: 0;
@@ -27,49 +30,140 @@
 	z-index: 2;
 }
 
-[iam-radio-select-state ~= open]:checked
-~ [iam-radio-select-ddbtn ~= toopen]
-, [iam-radio-select-state ~= closed]:checked
-~ [iam-radio-select-ddbtn ~= toclose]
-, [iam-radio-select-state ~= val]
-~ [iam-radio-select-ddbtn ~= toclose] {
-	z-index: 1;
+[iam-radio-select-isopen]:checked
+~ [iam-radio-select-ddbtn ~= toopen] {
+	display: none;
 }
 
 [iam-radio-select-item]
 , [iam-radio-select-placeholder]
+, [iam-radio-select-title]
 , [iam-radio-select-ddbtn] {
 	cursor: pointer;
-	display: block;
 	line-height: 2em;
 }
 
 [iam-radio-select-item]
-, [iam-radio-select-placeholder] {
-	max-height: 0;
+, [iam-radio-select-placeholder]
+, [iam-radio-select-title] {
+	display: none;
 	overflow: hidden;
 	padding: 0 2ex 0 1ex;
+	position: relative;
 	white-space: nowrap;
 }
 
-[iam-radio-select-state ~= val]:checked
-+ [iam-radio-select-item] {
-	background: lime;
-}
-
-[iam-radio-select-state ~= open]:checked
-~ [iam-radio-select-item]
-, [iam-radio-select-state ~= open]:checked
-~ [iam-radio-select-placeholder ~= toclose]
-, [iam-radio-select-state ~= closed]:checked
-~ [iam-radio-select-placeholder ~= toopen]
-, [iam-radio-select-state ~= val]:checked
-+ [iam-radio-select-item] {
-	max-height: 2em;
-}
-
-[iam-radio-select-state ~= open]:checked
+[iam-radio-select-isopen]:checked
 ~ [iam-radio-select-item]:hover {
 	background: #777;
 	color: #fff;
 }
+
+[iam-radio-select-val]:checked
++ [iam-radio-select-item] {
+	color: SeaGreen;
+}
+
+[iam-radio-select-isopen]:checked
+~ [iam-radio-select-val]:checked
++ [iam-radio-select-item] {
+	text-decoration: underline;
+}
+
+[iam-radio-select-isopen]:checked
+~ [iam-radio-select-placeholder]
+
+, [iam-radio-select-isopen]:checked
+~ [iam-radio-select-item]
+
+, [iam-radio-select-isopen]:checked
+~ [iam-radio-select-title]
+
+, [iam-radio-select-val]:checked
++ [iam-radio-select-item]
+
+, [iam-radio-select-undef]:checked
++ [iam-radio-select-placeholder] {
+	display: block;
+}
+
+/* #region flags */
+[iam-fl] {
+	background: #fff;
+	border: solid 1px #000;
+	display: none;
+	height: 2ex;
+	line-height: 1.8ex;
+	overflow: hidden;
+	position: absolute;
+	right: 1ex;
+	text-align: center;
+	top: .5em;
+	width: 3ex;
+}
+
+[iam-radio-select-isopen]:checked
+~ [iam-radio-select-item] [iam-fl]
+, [iam-radio-select-val]:checked [iam-fl] {
+	display: inline-block;
+}
+
+[iam-fl ~= JPN]::before {
+	color: red;
+	content: '\25CF';
+	font-size: 20px;
+}
+
+[iam-fl ~= BEL] {
+	background: red;
+	text-align: left;
+}
+
+[iam-fl ~= BEL]::before {
+	border-left: solid 1.1ex black;
+	border-right: solid 1.2ex yellow;
+	content: '';
+	height: 100%;
+	width: 2.2ex;
+}
+
+[iam-fl ~= AUS] {
+	background: red;
+}
+
+[iam-fl = AUS]::before {
+	border-bottom: solid .8ex #fff;
+	content: '';
+	display: block;
+	height: 0;
+	margin-top: .7ex;
+	width: 100%;
+}
+
+[iam-radio-select-val][disabled]
++ [iam-radio-select-item] [iam-fl] {
+	opacity: .25;
+}
+/* #endregion */
+
+/* #region Add-on grouping and whatever you want */
+[iam-radio-select-val][disabled]
++ [iam-radio-select-item]{
+	color: #aaa;
+	cursor: default;
+	text-decoration: line-through;
+}
+
+[iam-radio-select-val][disabled]
++ [iam-radio-select-item]:hover {
+	background: #fff;
+	color: #aaa;
+}
+
+[iam-radio-select-title]{
+	background: SeaGreen;
+	color: #fff;
+	cursor: default;
+	text-align: center;
+}
+/* #endregion */

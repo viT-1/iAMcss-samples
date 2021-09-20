@@ -1,22 +1,44 @@
+<meta charset="UTF-8" />
 <link rel="stylesheet" type="text/css" href="pure-css-select.css" />
 <div iam-radio-select>
 	<div iam-radio-select-frame>
-		<input iam-radio-select-state="closed" type="radio" name="sel-01" id="sel-01-c" value="none" checked />
-		<input iam-radio-select-state="open" type="radio" name="sel-01" id="sel-01-o" value="none" />
-		<label iam-radio-select-placeholder="toopen" for="sel-01-o">Select something</label>
-		<label iam-radio-select-placeholder="toclose" for="sel-01-c">Select something</label>
+		<input iam-radio-select-isopen type="checkbox" id="sel-01-isopen" />
+		<input iam-radio-select-undef type="radio" name="sel-01" id="sel-01-undef" value="none" checked />
+		<label iam-radio-select-placeholder for="sel-01-isopen">Select a country</label>
+
+		<label iam-radio-select-title>Europe</label>
+		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[1]" value="first" />
+		<label iam-radio-select-item for="sel-01[1]">Australia<span iam-fl="AUS"></span></label>
+		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[2]" value="second" />
+		<label iam-radio-select-item for="sel-01[2]">Belgium<span iam-fl="BEL"></span></label>
+		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[3]" value="third" disabled />
+		<label iam-radio-select-item for="sel-01[3]">Czechoslovakia</label>
 		
-		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[1]" value="first" />
-		<label iam-radio-select-item for="sel-01[1]">Australia</label>
-		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[2]" value="second" />
-		<label iam-radio-select-item for="sel-01[2]">Belgium</label>
-		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[3]" value="third" />
-		<label iam-radio-select-item for="sel-01[3]">Croatia</label>
-		<input iam-radio-select-state="val" type="radio" name="sel-01" id="sel-01[4]" value="fourth" />
-		<label iam-radio-select-item for="sel-01[4]">Russia</label>
-		
-		<label iam-radio-select-ddbtn="toopen" for="sel-01-o">▼</label>
-		<label iam-radio-select-ddbtn="toclose" for="sel-01-c">▲</label>
+		<label iam-radio-select-title>Asia</label>
+		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[4]" value="fourth" />
+		<label iam-radio-select-item for="sel-01[4]">Japan<span iam-fl="JPN"></span></label>
+		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[5]" value="fifth" disabled />
+		<label iam-radio-select-item for="sel-01[5]">Kushan</label>
+
+		<label iam-radio-select-ddbtn="toclose" for="sel-01-isopen">▲</label>
+		<label iam-radio-select-ddbtn="toopen" for="sel-01-isopen">▼</label>
 	</div>
 </div>
 <button onclick="alert(document.querySelector('[name=sel-01]:checked').value)">show selected value</button>
+<script>
+// pure css but helper (you can try to cut out all js code here ;)
+window.onload = function() {
+	var iamSelects = document.querySelectorAll('[iam-radio-select-frame]'),
+		i, j, chkState, iamSelectsValues;
+
+	for (i = 0; i < iamSelects.length; ++i){
+		chkState = iamSelects[i].querySelector('[iam-radio-select-isopen]');
+		// Helper to close/open with select/click on main area/item (not only dropdown button)
+		iamSelects[i].addEventListener('click', function(e){
+			if(e.target.hasAttribute('iam-radio-select-val')){
+				chkState.checked = !chkState.checked;
+			}
+		});
+	}
+}
+</script>
