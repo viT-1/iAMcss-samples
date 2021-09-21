@@ -1,3 +1,4 @@
+/* #region iam-radio-select */
 [iam-radio-select] {
 	display: inline-block;
 	height: 2em;
@@ -12,14 +13,13 @@
 }
 
 [iam-radio-select-frame] {
-	border: solid 1px #000;
+	border: solid 1px;
 	cursor: pointer;
 	position: absolute;
 	width: 100%;
 }
 
 [iam-radio-select-ddbtn] {
-	background: #fff;
 	display: block;
 	padding: 0 .5ex 0 0;
 	position: absolute;
@@ -54,9 +54,39 @@
 }
 
 [iam-radio-select-isopen]:checked
+~ [iam-radio-select-val]:checked
++ [iam-radio-select-item] {
+	text-decoration: underline;
+}
+
+[iam-radio-select-isopen]:checked ~ [iam-radio-select-placeholder]
+, [iam-radio-select-isopen]:checked ~ [iam-radio-select-item]
+, [iam-radio-select-isopen]:checked ~ [iam-radio-select-title]
+, [iam-radio-select-val]:checked + [iam-radio-select-item]
+, [iam-radio-select-undef]:checked + [iam-radio-select-placeholder] {
+	display: block;
+}
+/* #endregion */
+
+/* region colors (without css-variables) */
+[iam-fl]
+, [iam-radio-select-ddbtn]
+, [iam-radio-select-frame] {
+	background: #fff;
+}
+
+[iam-radio-select-isopen]:checked
 ~ [iam-radio-select-item]:hover {
 	background: #777;
 	color: #fff;
+}
+
+[iam-radio-select-val][disabled]
++ [iam-radio-select-item]:hover
+, [iam-radio-select-val][disabled]
++ [iam-radio-select-item] {
+	background: #fff;
+	color: #aaa;
 }
 
 [iam-radio-select-val]:checked
@@ -64,105 +94,132 @@
 	color: SeaGreen;
 }
 
-[iam-radio-select-isopen]:checked
-~ [iam-radio-select-val]:checked
-+ [iam-radio-select-item] {
-	text-decoration: underline;
+[iam-radio-select-title] {
+	background: SeaGreen;
+	color: #fff;
 }
 
-[iam-radio-select-isopen]:checked
-~ [iam-radio-select-placeholder]
-
-, [iam-radio-select-isopen]:checked
-~ [iam-radio-select-item]
-
-, [iam-radio-select-isopen]:checked
-~ [iam-radio-select-title]
-
-, [iam-radio-select-val]:checked
-+ [iam-radio-select-item]
-
-, [iam-radio-select-undef]:checked
-+ [iam-radio-select-placeholder] {
-	display: block;
+[iam-fl]
+, [iam-radio-select-frame] {
+	border-color: #000;
 }
+/* #endregion */
 
 /* #region flags */
 [iam-fl] {
-	background: #fff;
-	border: solid 1px #000;
-	display: none;
+	border: solid 1px;
+	display: inline-block;
 	height: 2ex;
 	line-height: 1.8ex;
 	overflow: hidden;
-	position: absolute;
-	right: 1ex;
 	text-align: center;
-	top: .5em;
 	width: 3ex;
 }
 
+[iam-fl ~= iam-radio-select] {
+	display: none;
+	position: absolute;
+	right: 1ex;
+	top: .5em;
+}
+
 [iam-radio-select-isopen]:checked
-~ [iam-radio-select-item] [iam-fl]
-, [iam-radio-select-val]:checked [iam-fl] {
+~ [iam-radio-select-item] [iam-fl] {
 	display: inline-block;
 }
 
-[iam-fl ~= JPN]::before {
-	color: red;
-	content: '\25CF';
-	font-size: 20px;
+[iam-fl ~= AUT] {
+	background: #c8102e;
+}
+
+[iam-fl ~= AUT]::before {
+	border-bottom: solid .8ex white;
+	content: ' ';
+	display: block;
+	height: 0;
+	margin-top: .6ex;
+	width: 100%;
 }
 
 [iam-fl ~= BEL] {
-	background: red;
+	background: #ef3340;
 	text-align: left;
 }
 
 [iam-fl ~= BEL]::before {
-	border-left: solid 1.1ex black;
-	border-right: solid 1.2ex yellow;
-	content: '';
-	height: 100%;
-	width: 2.2ex;
+	border-left: 1ex solid black;
+	background: #fdda24;
+	content: '_';
+	line-height: 2ex;
 }
 
-[iam-fl ~= AUS] {
-	background: red;
+[iam-fl ~= DEN] {
+	background: #c60c30;
 }
 
-[iam-fl = AUS]::before {
-	border-bottom: solid .8ex #fff;
-	content: '';
+[iam-fl ~= DEN]::before {
+	border-bottom: solid .28ex white;
+	content: ' ';
 	display: block;
 	height: 0;
-	margin-top: .7ex;
+	margin-top: .86ex;
 	width: 100%;
 }
+
+[iam-fl ~= DEN]::after {
+	border-left: solid .28ex white;
+	content: ' ';
+	display: block;
+	height: 100%;
+	margin-top: -1.14ex;
+	margin-left: .86ex;
+}
+
+[iam-fl ~= FRA] {
+	background: linear-gradient(90deg, #0055a4 32%, white 32% 68%, #ef4135 68%);
+}
+
+[iam-fl ~= ITA] {
+	background: linear-gradient(to right, #008C45 32%, #f4f5f0 32% 68%, #cd212a 68%);
+}
+
+[iam-fl ~= JPN]::before {
+	color: #bc002d;
+	content: '\25CF';
+	font-size: 20px;
+}
+
 
 [iam-radio-select-val][disabled]
 + [iam-radio-select-item] [iam-fl] {
 	opacity: .25;
+}
+
+[iam-flag-list] {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+[iam-fl ~= iam-flag-list] {
+	float: left;
+	margin-right: 1ex;
+}
+
+[iam-flag-list-item] {
+	margin-bottom: .5ex;
+	vertical-align: middle;
 }
 /* #endregion */
 
 /* #region Add-on grouping and whatever you want */
 [iam-radio-select-val][disabled]
 + [iam-radio-select-item]{
-	color: #aaa;
 	cursor: default;
 	text-decoration: line-through;
 }
 
-[iam-radio-select-val][disabled]
-+ [iam-radio-select-item]:hover {
-	background: #fff;
-	color: #aaa;
-}
-
-[iam-radio-select-title]{
-	background: SeaGreen;
-	color: #fff;
+[iam-radio-select-title] {
 	cursor: default;
 	text-align: center;
 }

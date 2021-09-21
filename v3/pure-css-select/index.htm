@@ -1,5 +1,7 @@
 <meta charset="UTF-8" />
 <link rel="stylesheet" type="text/css" href="pure-css-select.css" />
+<title>Css custom styling select with pure css country flags</title>
+<h2>Dropdown with flags</h2>
 <div iam-radio-select>
 	<div iam-radio-select-frame>
 		<input iam-radio-select-isopen type="checkbox" id="sel-01-isopen" />
@@ -8,15 +10,15 @@
 
 		<label iam-radio-select-title>Europe</label>
 		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[1]" value="first" />
-		<label iam-radio-select-item for="sel-01[1]">Australia<span iam-fl="AUS"></span></label>
+		<label iam-radio-select-item for="sel-01[1]">Austria<span iam-fl="iam-radio-select AUT"></span></label>
 		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[2]" value="second" />
-		<label iam-radio-select-item for="sel-01[2]">Belgium<span iam-fl="BEL"></span></label>
+		<label iam-radio-select-item for="sel-01[2]">Belgium<span iam-fl="iam-radio-select BEL"></span></label>
 		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[3]" value="third" disabled />
 		<label iam-radio-select-item for="sel-01[3]">Czechoslovakia</label>
 		
 		<label iam-radio-select-title>Asia</label>
 		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[4]" value="fourth" />
-		<label iam-radio-select-item for="sel-01[4]">Japan<span iam-fl="JPN"></span></label>
+		<label iam-radio-select-item for="sel-01[4]">Japan<span iam-fl="iam-radio-select JPN"></span></label>
 		<input iam-radio-select-val type="radio" name="sel-01" id="sel-01[5]" value="fifth" disabled />
 		<label iam-radio-select-item for="sel-01[5]">Kushan</label>
 
@@ -42,3 +44,20 @@ window.onload = function() {
 	}
 }
 </script>
+
+<h2>Flags</h2>
+<!-- https://time.com/5164744/olympics-country-abbreviations/ -->
+<ul iam-flag-list>
+	<li iam-flag-list-item><span iam-fl="iam-flag-list AUT" title="AUT"></span>
+		<a href="hhttps://en.wikipedia.org/wiki/Flag_of_Austria#Colours">Austria</a> (CSS ::before)</li>
+	<li iam-flag-list-item><span iam-fl="iam-flag-list BEL" title="BEL"></span>
+		<a href="https://en.wikipedia.org/wiki/Flag_of_Belgium#Design_and_specifications">Belgium</a> (CSS ::before)</li>
+	<li iam-flag-list-item><span iam-fl="iam-flag-list DEN" title="DEN"></span>
+		<a href="https://encycolorpedia.com/flags/denmark">Denmark</a> (CSS ::before)</li>
+	<li iam-flag-list-item><span iam-fl="iam-flag-list FRA" title="FRA"></span>
+		<a href="https://en.wikipedia.org/wiki/Flag_of_France#Design">France</a> (CSS linear-gradient)</li>
+	<li iam-flag-list-item><span iam-fl="iam-flag-list ITA" title="ITA"></span>
+		<a href="https://en.wikipedia.org/wiki/Flag_of_Italy#Chromatic_definition">Italy</a> (CSS linear-gradient)</li>
+	<li iam-flag-list-item><span iam-fl="iam-flag-list JPN" title="JPN"></span>
+		<a href="https://encycolorpedia.com/flags/japan">Japan</a> (CSS ::before)</li>
+</ul>
