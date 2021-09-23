@@ -128,6 +128,8 @@
 	display: inline-block;
 }
 
+/* many flags as gradients https://codepen.io/dhanishgajjar/pen/xLmyjJ */
+
 [iam-fl ~= AUT] {
 	background: #c8102e;
 }
