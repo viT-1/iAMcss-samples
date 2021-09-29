@@ -1,0 +1,129 @@
+[iam-p ~= selected] { font-weight: bolder; }
+
+/* #region iam-themes="simple-colors" for iam-select */
+/* You can redefine it by define theme on parent html element (and variables in your css) */
+[iam-themes ~= simple-colors] {
+	--iam-select-c-highlight: SeaGreen;
+	--iam-select-c-back: White;
+	--iam-select-c-text: Black;
+	--iam-select-c-2nd-back: #777;
+	--iam-select-c-2nd-fore: var(--iam-select-c-back);
+	--iam-select-c-border: var(--iam-select-c-text);
+	--iam-select-c-selected-fore: var(--iam-select-c-highlight);
+	--iam-select-c-title-back: var(--iam-select-c-highlight);
+	--iam-select-c-title-fore: var(--iam-select-c-2nd-fore);
+	--iam-select-c-disabled-fore: #aaa;
+}
+/* #endregion */
+
+/* #region iam-select (code from pure-css-select) */
+[iam-select] {
+	display: inline-block;
+	height: 2em;
+	position: relative;
+	width: 150px;
+}
+
+/* slot rendering for getting innerHTML */
+[iam-select-slot] {
+	display: none;
+}
+
+[iam-select-val] {
+	display: none;
+}
+
+[iam-select-frame] {
+	border: solid 1px;
+	cursor: pointer;
+	position: absolute;
+	width: 100%;
+}
+
+[iam-select-ddbtn] {
+	display: block;
+	padding: 0 .5ex 0 0;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	top: 0;
+	width: 2ex;
+	z-index: 2;
+}
+
+[iam-select ~= is-open] [iam-select-ddbtn ~= toopen] {
+	display: none;
+}
+
+[iam-select-item]
+, [iam-select-placeholder]
+, [iam-select-title]
+, [iam-select-ddbtn] {
+	cursor: pointer;
+	line-height: 2em;
+}
+
+[iam-select-item]
+, [iam-select-placeholder]
+, [iam-select-title] {
+	display: none;
+	overflow: hidden;
+	padding: 0 2ex 0 1ex;
+	position: relative;
+	white-space: nowrap;
+}
+
+[iam-select ~= is-open] [iam-select-val]:checked
++ [iam-select-item] {
+	text-decoration: underline;
+}
+
+[iam-select ~= is-open] [iam-select-placeholder]
+, [iam-select ~= is-open] [iam-select-item]
+, [iam-select ~= is-open] [iam-select-title]
+, [iam-select-val]:checked + [iam-select-item]
+, [iam-select ~= is-undef] [iam-select-placeholder] {
+	display: block;
+}
+
+[iam-select-val][disabled]
++ [iam-select-item]
+, [iam-select-title][disabled] {
+	cursor: default;
+	text-decoration: line-through;
+}
+/* #endregion */
+
+/* #region iam-select colors */
+[iam-select-ddbtn]
+, [iam-select-frame] {
+	background: var(--iam-select-c-back);
+}
+
+[iam-select ~= is-open] [iam-select-item]:hover {
+	background: var(--iam-select-c-2nd-back);
+	color: var(--iam-select-c-2nd-fore);;
+}
+
+[iam-select-val][disabled]
++ [iam-select-item]:hover
+, [iam-select-val][disabled]
++ [iam-select-item] {
+	background: var(--iam-select-c-back);
+	color: var(--iam-select-c-disabled-fore);
+}
+
+[iam-select-val]:checked
++ [iam-select-item] {
+	color: var(--iam-select-c-selected-fore);
+}
+
+[iam-select-title] {
+	background: var(--iam-select-c-title-back);
+	color: var(--iam-select-c-title-fore);
+}
+
+[iam-select-frame] {
+	border-color: var(--iam-select-c-border);
+}
+/* #endregion */

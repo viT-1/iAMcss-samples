@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue single select</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="iam-select.css" />
+	<style>
+		/* redefine iam-select colors example */
+		[iam-themes ~= vit-1-colors] {
+			--iam-select-c-highlight: Orange;
+		}
+
+		[iam-app] {
+			display: block;
+		}
+	</style>
+	<!-- for local ie testing you shouldn't using css links, only style tags accepted -->
+	<script>window.MSInputMethodContext && document.documentMode && document.write(
+		'<script src="../../assets/ie11CustomProperties.min.js"><\/script>');</script>
+	</head>
+</head>
+<body iam-themes="simple-colors vit-1-colors">
+	<form iam-app>
+		<iam-select name="sel-01" id="uid-abc">
+			<option placeholder>Select value</option>
+			<optgroup label="1st & 2nd">
+				<option value="1st"><s>First</s></option>
+				<option value="2nd" selected>Second</option>
+			</optgroup>
+			<optgroup label="3rd & 4th" disabled title="Not tolerant values">
+				<option value="3rd">Third</option>
+				<option value="4th">Fourth</option>
+			</optgroup>
+			<option value="5th" disabled>Fifth</option>
+		</iam-select>
+		<iam-select name="sel-02" id="uid-abcd" v-model="sel2Value"
+			:options="sel2Options" :groups="sel2Groups" placeholder="Choose race"></iam-select>
+		<p>Selected value in 2nd select: ==[{{ sel2Value ? sel2Value : 'undefined' }}]==</p>
+	</form>
+
+	<button onclick="showSelected()">show value from select1</button>
+
+	<!-- If we aren't doing anything with slot's DOM, we can use directive! -->
+	<script type="text/x-template" id="iam-select">
+		<div :iam-select="iamMods" :disabled="disabled" :title="ttl" :id="id" v-on-clickaway="away">
+			<div iam-select-frame>
+				<span iam-select-placeholder @click="toggleVisibility" v-html="placeholder || optPlaceholder" />
+				<template v-for="(opt, i) in calcOptions">
+				<label iam-select-title	v-if="opt.groupTitle" :disabled="calcGroups[opt.groupIndex].disabled">{{opt.groupTitle}}</label>
+				<input iam-select-val type="radio" :name="name" :disabled="opt.disabled"
+					:id="id+'['+i+']'" :value="opt.value" :checked="opt.selected" />
+				<label iam-select-item
+					:for="id+'['+i+']'" v-html="opt.html || opt.value" @[!opt.disabled && 'click']="onSelect(opt)" />
+				</template>
+				<label iam-select-ddbtn="toclose" @click="toggleVisibility">▲</label>
+				<label iam-select-ddbtn="toopen" @click="toggleVisibility">▼</label>
+			</div>
+			<div iam-select-slot><slot></slot></div>
+		</div>
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+	<!-- <script src="../../assets/vue2.6.14.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue-clickaway@2.2.2/dist/vue-clickaway.min.js"></script>
+	<!-- <script src="../../assets/vue-clickaway2.2.2.min.js"></script> -->
+	<script src="iam-select.js"></script>
+	<script>
+		new Vue({
+			el: '[iam-app]',
+			data: {
+				sel2Value: undefined,
+				// 2nd variant to pass data to iam-select
+				// if you need more nesting levels, use treeview component
+				sel2Options: [
+					{ value: 'human', groupIndex: 0 },
+					{ value: 'dwarf', groupIndex: 0 },
+					{ value: 'gnome', groupIndex: 0 },
+					{ value: 'draenei', groupIndex: 0 },
+					{ value: 'blood elf', groupIndex: 1 },
+					{ value: 'murloc', groupIndex: 2, disabled: true },
+					{ value: 'night elf', groupIndex: 0 },
+					{ value: 'orc', groupIndex: 1 },
+					{ value: 'gnoll', groupIndex: 2 },
+					{ value: 'troll', groupIndex: 1 },
+					{ value: 'undead', groupIndex: 1 },
+					{ value: 'tauren', groupIndex: 1 },
+				],
+				sel2Groups: [
+					{ value: 'Alliance' },
+					{ value: 'Horde', disabled: true },
+					{ value: 'Mobs' },
+				],
+			}
+		});
+
+		function showSelected() {
+			var sel = document.querySelector('[name = sel-01]:checked');
+			alert(sel ? sel.value: 'undefined');
+		}
+	</script>
+</body>
+</html>
