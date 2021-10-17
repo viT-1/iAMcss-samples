@@ -134,12 +134,12 @@
 			// needs to sort by groups (if groups exists) & enrich with data
 			self.calcOptions = self.enrichOptionsGroupTitles(
 				self.options ? self.options : self.calcOptions,
-				self.calcGroups,
+				self.calcGroups
 			);
 		},
 
 		methods: {
-			enrichOptionsGroupTitles(opts, groups) {
+			enrichOptionsGroupTitles: function(opts, groups) {
 				var sortedOpts = opts.sort(function(a, b) {
 					if (typeof a.groupIndex === 'undefined' && typeof b.groupIndex === 'undefined')
     					return 0;
@@ -172,7 +172,7 @@
 				return sortedOpts;
 			},
 
-			toggleVisibility() {
+			toggleVisibility: function() {
 				this.isOpenState = !this.isOpenState;
 				this.$emit(this.isOpenState ? 'open' : 'close', this.id);
 			},
