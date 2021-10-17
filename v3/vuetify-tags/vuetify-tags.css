@@ -3,53 +3,7 @@
 	margin: 1em;
 }
 
-
-/* #region iam-v-data-table-filter */
-[iam-v-data-table-filter] {
-	border: 0;
-}
-
-[iam-h ~= iam-v-data-table-filter]:after {
-	content: ':';
-}
-
 /* specificy but without space nesting */
-[iam-v-data-table-filter-chip].v-chip--active {
-	text-decoration: underline; /* we can't reassign background, bab bad vuetify code! */
-}
-
-[iam-v-data-table-filter-chip ~= markup].v-chip {
-	border-color: #C33;
-}
-
-[iam-v-data-table-filter-chip ~= markup].v-chip--active {
-	color: #C33;
-}
-
-[iam-v-data-table-filter-chip ~= style].v-chip {
-	border-color: #09C;
-}
-
-[iam-v-data-table-filter-chip ~= style].v-chip--active {
-	color: #09C;
-}
-
-[iam-v-data-table-filter-chip ~= script].v-chip {
-	border-color: #F93;
-}
-
-[iam-v-data-table-filter-chip ~= script].v-chip--active {
-	color: #F93;
-}
-
-[iam-v-data-table-filter-chip ~= node].v-chip {
-	border-color: green;
-}
-
-[iam-v-data-table-filter-chip ~= node].v-chip--active {
-	color: green;
-}
-/* #endregion */
 
 /* #region iam-v-data-table */
 [iam-v-data-table] {

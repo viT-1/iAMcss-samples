@@ -1,0 +1,46 @@
+/* specificy but without space nesting */
+/* #region iam-tag-group */
+[iam-tag-group-chip].v-chip--active {
+	text-decoration: underline; /* we can't reassign background, bab bad vuetify code! */
+}
+
+[iam-tag-group-chip ~= markup].v-chip {
+	border-color: #C33;
+}
+
+[iam-tag-group-chip ~= markup].v-chip--active {
+	color: #C33;
+}
+
+[iam-tag-group-chip ~= style].v-chip {
+	border-color: #09C;
+}
+
+[iam-tag-group-chip ~= style].v-chip--active {
+	color: #09C;
+}
+
+[iam-tag-group-chip ~= script].v-chip {
+	border-color: #F93;
+}
+
+[iam-tag-group-chip ~= script].v-chip--active {
+	color: #F93;
+}
+
+[iam-tag-group-chip ~= node].v-chip {
+	border-color: green;
+}
+
+[iam-tag-group-chip ~= node].v-chip--active {
+	color: green;
+}
+
+[iam-tag-group-fieldset] {
+	border: 0;
+}
+
+[iam-h ~= iam-tag-group]:after {
+	content: ':';
+}
+/* #endregion */

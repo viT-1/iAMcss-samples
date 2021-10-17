@@ -46,7 +46,7 @@
 				},
 				tags: {
 					markup: [
-						{ label: 'aria', describe: 'ARIA-атрибуты' },
+						{ label: 'aria', describe: 'В вёрстке используются ARIA-атрибуты' },
 						{ label: 'html4' },
 						{ label: 'html5' },
 						{ label: 'svg', describe: 'Когда svg в качестве основного контента (не оформление)' },

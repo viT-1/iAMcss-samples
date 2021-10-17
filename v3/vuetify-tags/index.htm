@@ -12,50 +12,35 @@
 	<script>window.MSInputMethodContext && document.documentMode && document.write(
 		'<script src="../../assets/core-js3.18.2.min.js"><\/script>');</script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.2/minified.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="iam-tag-group.css" />
 	<link rel="stylesheet" type="text/css" href="vuetify-tags.css" />
 </head>
 <body>
-	<main iam-app role="main">
-		<fieldset iam-v-data-table-filter>
-			<legend iam-h="iam-v-data-table-filter">Markup</legend>
-			<v-chip-group column multiple v-model="selectedIndexes.markup">
-				<v-chip iam-v-data-table-filter-chip="markup"
-					outlined
-					v-for="tag in tags.markup">
-					{{tag.label}}
-				</v-chip>
-			</v-chip-group>
-		</fieldset>
-		<fieldset iam-v-data-table-filter>
-			<legend iam-h="iam-v-data-table-filter">Style</legend>
-			<v-chip-group column multiple v-model="selectedIndexes.style">
-				<v-chip iam-v-data-table-filter-chip="style"
-					outlined
-					v-for="tag in tags.style">
-					{{tag.label}}
-				</v-chip>
-			</v-chip-group>
-		</fieldset>
-		<fieldset iam-v-data-table-filter>
-			<legend iam-h="iam-v-data-table-filter">Script</legend>
-			<v-chip-group column multiple v-model="selectedIndexes.script">
-				<v-chip iam-v-data-table-filter-chip="script"
-					outlined
-					v-for="tag in tags.script">
-					{{tag.label}}
-				</v-chip>
-			</v-chip-group>
-		</fieldset>
-		<fieldset iam-v-data-table-filter>
-			<legend iam-h="iam-v-data-table-filter">Node</legend>
-			<v-chip-group column multiple v-model="selectedIndexes.node">
-				<v-chip iam-v-data-table-filter-chip="node"
-					outlined
-					v-for="tag in tags.node">
-					{{tag.label}}
-				</v-chip>
-			</v-chip-group>
-		</fieldset>
+	<main iam-app role="main" data-app>
+		<iam-tag-group
+			context="markup"
+			title="Markup"
+			v-model="selectedIndexes.markup"
+			:tags="tags.markup"
+		></iam-tag-group>
+		<iam-tag-group
+			context="style"
+			title="Style"
+			v-model="selectedIndexes.style"
+			:tags="tags.style"
+		></iam-tag-group>
+		<iam-tag-group
+			context="script"
+			title="Script"
+			v-model="selectedIndexes.script"
+			:tags="tags.script"
+		></iam-tag-group>
+		<iam-tag-group
+			context="node"
+			title="Node"
+			v-model="selectedIndexes.node"
+			:tags="tags.node"
+		></iam-tag-group>
 
 		<v-data-table iam-v-data-table
 			hide-default-footer
@@ -79,11 +64,34 @@
 			</template>
 		</v-data-table>
 	</main>
+
+	<script type="text/x-template" id="iam-tag-group">
+		<fieldset iam-tag-group-fieldset>
+			<legend iam-h="iam-tag-group" v-if="title">{{title}}</legend>
+			<v-chip-group column multiple :value="value" @change="onChange">
+				<template v-for="tag in tags">
+					<v-tooltip v-if="tag.describe" bottom>
+						<template #activator="props">
+							<v-chip :iam-tag-group-chip="context"
+								outlined
+								v-on="props.on" v-bind="props.attrs">{{tag.label}}</v-chip>
+						</template>
+						<span>{{tag.describe}}</span>
+					</v-tooltip>
+					<v-chip v-else
+						:iam-tag-group-chip="context"
+						outlined
+					>{{tag.label}}</v-chip>
+				</template>
+			</v-chip-group>
+		</fieldset>
+	</script>
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.4.5/dist/vuetify.min.js"></script>
 	<!-- <script src="../../assets/vue2.6.14.min.js"></script>
 	<script src="../../assets/vuetify2.4.5.min.js"></script> -->
+	<script src="iam-tag-group.js"></script>
 	<script src="vuetify-tags.js"></script>
 </body>
 </html>
