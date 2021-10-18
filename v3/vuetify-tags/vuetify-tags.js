@@ -151,7 +151,6 @@
 			{ label: 'es5' },
 			{ label: 'es6' },
 			{ label: 'jquery', describe: 'Интеграция с jQuery' },
-			{ label: 'js', describe: 'Используется JavaScript' },
 			{ label: 'jsoff', describe: 'Если выключить JavaScript, то всё равно информация считывается' },
 			{ label: 'esm', describe: 'ECMAScript модули' },
 			{ label: 'ts', describe: 'TypeScript' },
