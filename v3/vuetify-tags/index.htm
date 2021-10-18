@@ -18,27 +18,27 @@
 <body>
 	<main iam-app role="main" data-app>
 		<iam-tag-group
+			@tags-selected="onTagsSelected"
 			context="markup"
 			title="Markup"
-			v-model="selectedIndexes.markup"
 			:tags="tags.markup"
 		></iam-tag-group>
 		<iam-tag-group
+			@tags-selected="onTagsSelected"
 			context="style"
 			title="Style"
-			v-model="selectedIndexes.style"
 			:tags="tags.style"
 		></iam-tag-group>
 		<iam-tag-group
+			@tags-selected="onTagsSelected"
 			context="script"
 			title="Script"
-			v-model="selectedIndexes.script"
 			:tags="tags.script"
 		></iam-tag-group>
 		<iam-tag-group
+			@tags-selected="onTagsSelected"
 			context="node"
 			title="Node"
-			v-model="selectedIndexes.node"
 			:tags="tags.node"
 		></iam-tag-group>
 
@@ -68,18 +68,18 @@
 	<script type="text/x-template" id="iam-tag-group">
 		<fieldset iam-tag-group-fieldset>
 			<legend iam-h="iam-tag-group" v-if="title">{{title}}</legend>
-			<v-chip-group column multiple :value="value" @change="onChange">
+			<v-chip-group column multiple :value="selectedIndexes" @change="onChange">
 				<template v-for="tag in tags">
 					<v-tooltip v-if="tag.describe" bottom>
 						<template #activator="props">
-							<v-chip :iam-tag-group-chip="context"
+							<v-chip :iam-tag-group-chip="setAttrValueForTag(tag.label)"
 								outlined
 								v-on="props.on" v-bind="props.attrs">{{tag.label}}</v-chip>
 						</template>
 						<span>{{tag.describe}}</span>
 					</v-tooltip>
 					<v-chip v-else
-						:iam-tag-group-chip="context"
+						:iam-tag-group-chip="setAttrValueForTag(tag.label)"
 						outlined
 					>{{tag.label}}</v-chip>
 				</template>

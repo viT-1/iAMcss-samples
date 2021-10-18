@@ -1,6 +1,6 @@
-/* specificy but without space nesting */
+/* overspecificy .v-chip =( but without space nesting */
 /* #region iam-tag-group */
-[iam-tag-group-chip].v-chip--active {
+[iam-tag-group-chip ~= active] {
 	text-decoration: underline; /* we can't reassign background, bab bad vuetify code! */
 }
 
@@ -8,7 +8,7 @@
 	border-color: #C33;
 }
 
-[iam-tag-group-chip ~= markup].v-chip--active {
+[iam-tag-group-chip *= "markup active"].v-chip {
 	color: #C33;
 }
 
@@ -16,7 +16,7 @@
 	border-color: #09C;
 }
 
-[iam-tag-group-chip ~= style].v-chip--active {
+[iam-tag-group-chip *= "style active"].v-chip {
 	color: #09C;
 }
 
@@ -24,7 +24,7 @@
 	border-color: #F93;
 }
 
-[iam-tag-group-chip ~= script].v-chip--active {
+[iam-tag-group-chip *= "script active"].v-chip {
 	color: #F93;
 }
 
@@ -32,7 +32,7 @@
 	border-color: green;
 }
 
-[iam-tag-group-chip ~= node].v-chip--active {
+[iam-tag-group-chip *= "node active"].v-chip {
 	color: green;
 }
 

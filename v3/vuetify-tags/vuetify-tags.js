@@ -180,7 +180,7 @@
 		vuetify: new Vuetify(),
 		data: function() {
 			return {
-				selectedIndexes: {
+				selectedLabels: {
 					markup: [],
 					node: [],
 					script: [],
@@ -204,51 +204,44 @@
 			filteredTableItems: function() {
 				var self = this;
 
-				var allIndexesAreEmpty = Object.keys(self.selectedIndexes).every(function(key) {
-					return self.selectedIndexes[key].length === 0;
+				var nothingSelected = Object.keys(self.selectedLabels).every(function(key) {
+					return self.selectedLabels[key].length === 0;
 				});
 
 				// if tag filter is not set return original array
-				if (allIndexesAreEmpty)
+				if (nothingSelected)
 					return self.tableData.items;
 
 				return self.tableData.items.filter(self.itemHasOneOfSelectedTags);
 			}
 		},
 		methods: {
-			getActiveTags: function(context) {
-				var self = this;
-				var filtered = self.tags[context].filter(function(tag, i) {
-					return self.selectedIndexes[context].includes(i);
-				});
-
-				return filtered.map(function(o) {
-					return o.label;
-				});
+			onTagsSelected: function(val) {
+				this.selectedLabels[val.context] = val.labels;
 			},
 			itemHasOneOfSelectedTags: function(item) {
 				var self = this;
 
 				var hasMarkupTag = item.tags.markup ? item.tags.markup.some(function(r) {
-					return self.getActiveTags('markup').includes(r);
+					return self.selectedLabels['markup'].includes(r);
 				}): false;
 
 				var hasStyleTag = item.tags.style ? item.tags.style.some(function(r) {
-					return self.getActiveTags('style').includes(r);
+					return self.selectedLabels['style'].includes(r);
 				}) : false;
 
 				var hasScriptTag = item.tags.script ? item.tags.script.some(function(r) {
-					return self.getActiveTags('script').includes(r);
+					return self.selectedLabels['script'].includes(r);
 				}) : false;
 
 				var hasNodeTag = item.tags.node ? item.tags.node.some(function(r) {
-					return self.getActiveTags('node').includes(r);
+					return self.selectedLabels['node'].includes(r);
 				}) : false;
 
 				return hasMarkupTag || hasStyleTag || hasScriptTag || hasNodeTag;
 			},
 			setAttrValueForTag: function(tag, context) {
-				var isActive = this.getActiveTags(context).includes(tag);
+				var isActive = this.selectedLabels[context].includes(tag);
 
 				return isActive ? context + ' active' : context;
 			}
