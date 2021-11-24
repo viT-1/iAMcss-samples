@@ -62,6 +62,9 @@
 			<template #item.tags.node="props">
 				<span v-for="tag in props.item.tags.node" :iam-v-data-table-tag="setAttrValueForTag(tag, 'node')">{{tag}}</span>
 			</template>
+			<template #no-data>
+				<p>Опыт есть, но нет общедоступного кода для демонстрации.</p>
+			</template>
 		</v-data-table>
 	</main>
 

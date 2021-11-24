@@ -88,7 +88,7 @@
 			descr: 'Collapsible treeview with svg icons on json data.',
 			tags: {
 				markup: ['html4'],
-				script: ['es5'],
+				script: ['es5', 'prototype'],
 				style: ['iam', 'svg'],
 			},
 		},
@@ -109,6 +109,16 @@
 				markup: ['html4'],
 				script: ['es5', 'vue'],
 				style: ['bem', 'fonticons', 'vars'],
+			},
+		},
+		{
+			link: 'https://vit-1.github.io/iAMcss-samples/v3/iam-select/',
+			name: 'iam-select',
+			descr: 'Single select with checkbox hack, grouping support & custom styling',
+			tags: {
+				markup: ['aria', 'html4'],
+				script: ['es5', 'vue'],
+				style: ['iam'],
 			},
 		},
 		{
@@ -153,6 +163,7 @@
 			{ label: 'jquery', describe: 'Интеграция с jQuery' },
 			{ label: 'jsoff', describe: 'Если выключить JavaScript, то всё равно информация считывается' },
 			{ label: 'esm', describe: 'ECMAScript модули' },
+			{ label: 'prototype' },
 			{ label: 'ts', describe: 'TypeScript' },
 			{ label: 'vue' },
 			{ label: 'vue@decor', describe: 'Написание компонент vue в виде es6 классов через vue-property-decorator' },
