@@ -35,12 +35,15 @@
 				return this.mods ? this.mods + ' ' + this.selectStates : this.selectStates;
 			},
 
-			selectStates: function () {
-				var isOpen = this.isOpenState ? iamStates.optionsVisible : iamStates.optionsInvisible;
-				if (this.undef)
-					return isOpen + ' ' + iamStates.valUndefined;
+			iamModO: function () {
+				return this.isOpenState ? iamStates.optionsVisible : iamStates.optionsInvisible;
+			},
 
-				return isOpen
+			selectStates: function () {
+				if (this.undef)
+					return this.iamModO + ' ' + iamStates.valUndefined;
+
+				return this.iamModO;
 			},
 
 			ttl: function () {

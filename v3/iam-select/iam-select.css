@@ -51,23 +51,17 @@
 	z-index: 2;
 }
 
-/* TODO: change bad "whitespaced" selector
-to have iam-select:is-open value or additional attribute iam-select="is-open" */
-[iam-select ~= is-open] [iam-select-ddbtn ~= toopen] {
-	display: none;
-}
-
-[iam-select-item]
-, [iam-select-placeholder]
+[iam-select-placeholder]
 , [iam-select-title]
+, [iam-select-item]
 , [iam-select-ddbtn] {
 	cursor: pointer;
 	line-height: 2em;
 }
 
-[iam-select-item]
-, [iam-select-placeholder]
-, [iam-select-title] {
+[iam-select-placeholder]
+, [iam-select-title]
+, [iam-select-item] {
 	display: none;
 	overflow: hidden;
 	padding: 0 2ex 0 1ex;
@@ -75,20 +69,15 @@ to have iam-select:is-open value or additional attribute iam-select="is-open" */
 	white-space: nowrap;
 }
 
-/* TODO: change bad "whitespaced" selector
-to have iam-select:is-open value or additional attribute iam-select="is-open" */
-[iam-select ~= is-open] [iam-select-val]:checked
+[iam-select-val~= iam-select-is-open]:checked
 + [iam-select-item] {
 	text-decoration: underline;
 }
 
-/* TODO: change bad "whitespaced" selector
-to have iam-select:is-open value or additional attribute iam-select="is-open" */
-[iam-select ~= is-open] [iam-select-placeholder]
-, [iam-select ~= is-open] [iam-select-item]
-, [iam-select ~= is-open] [iam-select-title]
-, [iam-select-val]:checked + [iam-select-item]
-, [iam-select ~= is-undef] [iam-select-placeholder] {
+[iam-select-placeholder]
+, [iam-select-title ~= iam-select-is-open]
+, [iam-select-item ~= iam-select-is-open]
+, [iam-select-val]:checked + [iam-select-item] {
 	display: block;
 }
 
@@ -106,9 +95,7 @@ to have iam-select:is-open value or additional attribute iam-select="is-open" */
 	background: var(--iam-select-c-back);
 }
 
-/* TODO: change bad "whitespaced" selector
-to have iam-select:is-open value or additional attribute iam-select="is-open" */
-[iam-select ~= is-open] [iam-select-item]:hover {
+[iam-select-item ~= iam-select-is-open]:hover {
 	background: var(--iam-select-c-2nd-back);
 	color: var(--iam-select-c-2nd-fore);;
 }
