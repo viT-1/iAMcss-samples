@@ -7,15 +7,23 @@
 	margin: var(--text_space) auto;
 }
 
-[iam-h ~= iam-article] {
-	display: block;
-	font-style: normal;
-	font-weight: bolder;
+/* mod selectors should define variables */
+[iam-h *= "iam-article h1"] {
+	--article-h-font-size: 1.4em;
+	--article-h-margin-bottom: var(--text_secondary_space);
 }
 
-[iam-h *= "iam_article h1"] {
-	font-size: 1.4em;
-	margin-bottom: var(--text_secondary_space);
+[iam-h *= "iam-article h2"] {
+	--article-h-font-size: 1.2em;
+}
+
+/* core selectors (may be mixed as iam-article-h) should use variables */
+[iam-h ~= iam-article] {
+	display: block;
+	font-size: var(--article-h-font-size, initial);
+	font-style: normal;
+	font-weight: bolder;
+	margin-bottom: var(--article-h-margin-bottom, auto);
 }
 
 [iam-p] {
