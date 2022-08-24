@@ -1,0 +1,59 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../../assets/font-awesome/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="styled-checkbox-radio.css" />
+
+	<script src="../../assets/vanilla-listener.js"></script>
+</head>
+<body iam-body iam-themes="base light xl">
+	<p iam-example>
+		<input id="fb_chk_enable" iam-choose-input="checkbox" type="checkbox" data-nested="fb_chk" />
+		<label for="fb_chk_enable" iam-choose-label="checkbox">I have Facebook account</label><br>
+		<input id="fb_chk" iam-choose-input="checkbox" type="checkbox" disabled />
+		<label for="fb_chk" iam-choose-label="checkbox facebook nested">
+			<i class="fa fa-facebook-square" iam-choose-label-ico></i>Login through Facebook account</label>
+	</p>
+	<script>
+		// script only for nested checkboxes
+		attachNested();
+
+		function attachNested () {
+			var disabling_elems = document.querySelectorAll('[data-nested]');
+			var elem, nested_elem;
+			for ( var i = 0, i_ln = disabling_elems.length; i < i_ln; i++ ) {
+				elem = disabling_elems[i];
+				nested_elem = document.getElementById(
+					elem.getAttribute('data-nested')
+				);
+				addListener(
+					elem, 'click',
+					function () {	nested_elem.disabled = !nested_elem.disabled;	}
+				);
+			}
+		}
+	</script>
+
+	<p iam-example>This is your last chance. After this, there is no turning back.<br />
+		<input id="pill-2020" iam-choose-input="radio" type="radio" name="pill" />
+		<label for="pill-2020" iam-choose-label="radio">Red pill <i class="fa fa-toggle-on" iam-pill="red"></i></label><br />
+		<input id="pill-2022" iam-choose-input="radio" type="radio" name="pill" />
+		<label for="pill-2022" iam-choose-label="radio">Blue pill <i class="fa fa-toggle-on" iam-pill="blue"></i></label>
+	</p>
+	<p iam-example>Sex:
+		<input id="sex_1" iam-choose-input="radio" type="radio" name="sex" />
+		<label for="sex_1" iam-choose-label="radio">Male</label>
+		<input id="sex_2" iam-choose-input="radio" type="radio" name="sex" />
+		<label for="sex_2" iam-choose-label="radio">Female</label>
+		<input id="sex_3" iam-choose-input="radio" type="radio" name="sex" disabled />
+		<label for="sex_3" iam-choose-label="radio">Shemale</label>
+	</p>
+	<p iam-example>Please, rate this example:
+		<input id="ex_rate_0" iam-choose-input="star" type="radio" name="example_rating" checked value="0" />
+		<label for="ex_rate_1" iam-choose-label="star"></label>
+		<input id="ex_rate_1" iam-choose-input="star" type="radio" name="example_rating" value="1" />
+		<label for="ex_rate_2" iam-choose-label="star"></label>
+		<input id="ex_rate_2" iam-choose-input="star" type="radio" name="example_rating" value="2"/>
+		<label for="ex_rate_0" iam-choose-label="star"></label>
+	</p>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Prefer unmaintained last [4.7.0 version](https://fontawesome.com/v4/examples/), because of "frozen" state of code.
+[Way](https://stackoverflow.com/questions/13819689/font-awesome-icon-not-showing-on-ie7/46172125#46172125) to support IE7.
+Error on local drive (without server): downloadable font: no supported format found. [bugzilla](https://bugzilla.mozilla.org/show_bug.cgi?id=760436) - remove from path ".."

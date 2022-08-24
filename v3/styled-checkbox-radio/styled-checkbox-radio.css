@@ -1,0 +1,136 @@
+/* i-am-css v3.2.0 used */
+
+/* #region iam-themes */
+[iam-themes ~= xl] {
+	--iam-themes-fsz: 2em;
+}
+
+[iam-themes ~= base] {
+	--iam-themes-ffamily: 'Tahoma';
+	--iam-choose-label-ico-input-ffamily: 'FontAwesome';
+}
+
+[iam-themes] {
+	font-family: var(--iam-themes-ffamily);
+	font-size: var(--iam-themes-fsz);
+}
+/* #endregion */
+
+/* #region iam-choose */
+/* base css variables to redefine if you need in mods */
+:root {
+	--iam-choose-input-pos: absolute;
+	--iam-choose-input-lft: -9999px;
+	--iam-choose-label-clr: inherit;
+	--iam-choose-label-disp: inherit;
+	--iam-choose-label-m-lft: 0;
+	--iam-choose-label-ico-m-rgt: .25ex;
+}
+
+[iam-choose-input] {
+	/* keyboard tab support */
+	position: var(--iam-choose-input-pos);
+	left: var(--iam-choose-input-lft);
+}
+
+[iam-choose-label ~= facebook] {
+	--iam-choose-label-clr: rgba(59, 89, 152, 1);
+}
+
+[iam-choose-input]:disabled
++ [iam-choose-label] {
+	--iam-choose-input-cur: default;
+	--iam-choose-label-clr: grey;
+}
+
+/* You can make this selector lighter (without +, for example '[iam-choose-label ~= enabled]'),
+but you forced to use js */
+[iam-choose-input]:not([disabled])
++ [iam-choose-label] {
+	--iam-choose-input-cur: pointer;
+}
+
+[iam-choose-label ~= checkbox]:before {
+	--iam-choose-label-ico-input: '\f0c8';
+}
+
+[iam-choose-label ~= radio]:before {
+	--iam-choose-label-ico-input: '\f10c';
+}
+
+/* You can make this selector lighter (without +, for example
+'[iam-choose-label *= "checkbox checked"]' or '[iam-checkbox-label ~= checked]'),
+but you forced to use js */
+[iam-choose-input]:checked
++ [iam-choose-label ~= checkbox]:before {
+	--iam-choose-label-ico-input: '\f14a';
+}
+
+/* You can make this selector lighter (without +, for example
+'[iam-choose-label *= "radio checked"]' or '[iam-radio-label ~= checked]'),
+but you forced to use js */
+[iam-choose-input]:checked
++ [iam-choose-label ~= radio]:before {
+	--iam-choose-label-ico-input: '\f192';
+}
+
+[iam-choose-label ~= nested] {
+	--iam-choose-label-m-lft: 1em;
+}
+
+input[value = '0']
++ [iam-choose-label ~= star]:before {
+	--iam-choose-label-ico-input: '\f006';
+}
+
+input[value = '1']
++ [iam-choose-label ~= star]:before {
+	--iam-choose-label-ico-input: '\f123';
+}
+
+input[value = '2']
++ [iam-choose-label ~= star]:before {
+	--iam-choose-label-ico-input: '\f005';
+}
+
+[iam-choose-label ~= star] {
+	--iam-choose-label-disp: none;
+}
+
+[iam-choose-input]:checked
++ [iam-choose-label ~= star] {
+	--iam-choose-label-disp: inline;
+}
+
+[iam-choose-label] {
+	color: var(--iam-choose-label-clr);
+	cursor: var(--iam-choose-input-cur);
+	display: var(--iam-choose-label-disp);
+	margin-left: var(--iam-choose-label-m-lft);
+}
+
+/* fontico instead of standard checkbox/radio */
+[iam-choose-label]:before {
+	font-family: var(--iam-choose-label-ico-input-ffamily);
+	content: var(--iam-choose-label-ico-input);
+	margin-right: var(--iam-choose-label-ico-m-rgt);
+}
+
+[iam-choose-label-ico] {
+	margin-right: var(--iam-choose-label-ico-m-rgt);
+}
+/* #endregion */
+
+/* #region iam-pill */
+[iam-pill ~= red] {
+	--iam-pill-clr: red;
+}
+
+[iam-pill ~= blue] {
+	--iam-pill-clr: blue;
+}
+
+[iam-pill] {
+	color: var(--iam-pill-clr);
+}
+/* #endregion */
