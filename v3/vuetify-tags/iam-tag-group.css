@@ -1,46 +1,41 @@
 /* overspecificy .v-chip =( but without space nesting */
 /* #region iam-tag-group */
-[iam-tag-group-chip ~= active] {
-	text-decoration: underline; /* we can't reassign background, bab bad vuetify code! */
-}
 
+/* using .v-chip because of vuetify selector overweight */
 [iam-tag-group-chip ~= markup].v-chip {
-	border-color: #C33;
-}
-
-[iam-tag-group-chip *= "markup active"].v-chip {
-	color: #C33;
+	--iam-tag-group-chip-color: #C33;
 }
 
 [iam-tag-group-chip ~= style].v-chip {
-	border-color: #09C;
-}
-
-[iam-tag-group-chip *= "style active"].v-chip {
-	color: #09C;
+	--iam-tag-group-chip-color: #09C;
 }
 
 [iam-tag-group-chip ~= script].v-chip {
-	border-color: #F93;
-}
-
-[iam-tag-group-chip *= "script active"].v-chip {
-	color: #F93;
+	--iam-tag-group-chip-color: #F93;
 }
 
 [iam-tag-group-chip ~= node].v-chip {
-	border-color: green;
+	--iam-tag-group-chip-color: green;
 }
 
-[iam-tag-group-chip *= "node active"].v-chip {
-	color: green;
+[iam-tag-group-chip ~= active].v-chip {
+	--iam-tag-group-chip-active-color: var(--iam-tag-group-chip-color);
+
+	text-decoration: underline; /* we can't reassign background, bab bad vuetify code! */
+}
+
+[iam-tag-group-chip].v-chip {
+	border-color: var(--iam-tag-group-chip-color);
+	color: var(--iam-tag-group-chip-active-color, black);
 }
 
 [iam-tag-group-fieldset] {
+	--iam-h-after-content: ':';
+
 	border: 0;
 }
 
-[iam-h ~= iam-tag-group]:after {
-	content: ':';
+[iam-h]:after {
+	content: var(--iam-h-after-content, '');
 }
 /* #endregion */

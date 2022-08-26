@@ -70,7 +70,7 @@
 
 	<script type="text/x-template" id="iam-tag-group">
 		<fieldset iam-tag-group-fieldset>
-			<legend iam-h="iam-tag-group" v-if="title">{{title}}</legend>
+			<legend iam-h v-if="title">{{title}}</legend>
 			<v-chip-group column multiple :value="selectedIndexes" @change="onChange">
 				<template v-for="tag in tags">
 					<v-tooltip v-if="tag.describe" bottom>

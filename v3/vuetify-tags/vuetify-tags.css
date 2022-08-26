@@ -18,6 +18,7 @@
 	text-align: left;
 }
 
+/* #region using classes because of vuetify functionality */
 .iam-v-data-table-th.--th-name
 , .iam-v-data-table-th.--th-node
 , .iam-v-data-table-th.--th-script
@@ -32,6 +33,7 @@
 .iam-v-data-table-th.--th-markup {
 	width: 100px;
 }
+/* #endregion */
 
 [iam-v-data-table-tag] {
 	overflow-wrap: break-word;
@@ -46,23 +48,29 @@
 }
 
 [iam-v-data-table-tag ~= active] {
-	color: white;
+	--iam-v-data-table-tag-active-text-color: white;
+	--iam-v-data-table-tag-active-back-color: black;
 }
 
-[iam-v-data-table-tag *= "markup active"] {
-	background: #C33;
+[iam-v-data-table-tag ~= markup] {
+	--iam-v-data-table-tag-active-back-color: #C33;
 }
 
-[iam-v-data-table-tag *= "script active"] {
-	background: #F93;
+[iam-v-data-table-tag ~= script] {
+	--iam-v-data-table-tag-active-back-color: #F93;
 }
 
-[iam-v-data-table-tag *= "style active"] {
-	background: #09C;
+[iam-v-data-table-tag ~= style] {
+	--iam-v-data-table-tag-active-back-color: #09C;
 }
 
-[iam-v-data-table-tag *= "node active"] {
-	background: green;
+[iam-v-data-table-tag ~= node] {
+	--iam-v-data-table-tag-active-back-color: green;
+}
+
+[iam-v-data-table-tag ~= active] {
+	background: var(--iam-v-data-table-tag-active-back-color);
+	color: var(--iam-v-data-table-tag-active-text-color);
 }
 
 [iam-v-data-table-tag ~= active]:after {
