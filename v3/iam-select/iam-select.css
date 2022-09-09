@@ -1,3 +1,5 @@
+/* coding with iam-css v3.2 methodology: https://github.com/viT-1/iAMcss/blob/master/v3/styleguide.md */
+
 [iam-p ~= selected] { font-weight: bolder; }
 
 /* #region iam-themes="simple-colors" for iam-select */
@@ -16,7 +18,19 @@
 }
 /* #endregion */
 
-/* #region iam-select (code from pure-css-select) */
+/* #region iam-select */
+[iam-select ~= "is-undef"] {
+	--iam-select-is-undef: ;
+}
+
+[iam-select ~= "is-closed"] {
+	--iam-select-is-closed: ;
+}
+
+[iam-select ~= "is-open"] {
+	--iam-select-is-open: ;
+}
+
 [iam-select] {
 	display: inline-block;
 	height: 2em;
@@ -25,11 +39,8 @@
 }
 
 /* slot rendering for getting innerHTML */
-[iam-select-slot] {
-	display: none;
-}
-
-[iam-select-val] {
+[iam-select-slot]
+, [iam-select-val] {
 	display: none;
 }
 
@@ -41,14 +52,21 @@
 }
 
 [iam-select-ddbtn] {
+	border: none;
 	display: block;
-	padding: 0 .5ex 0 0;
+	padding: .5ex .5ex 0 0;
 	position: absolute;
 	right: 0;
 	text-align: right;
 	top: 0;
 	width: 2ex;
 	z-index: 2;
+}
+
+[iam-select-ddbtn]::after {
+	--content-ddbtn-toopen: var(--iam-select-is-closed) '▼';
+	--content-ddbtn-toclose: var(--iam-select-is-open) '▲';
+	content: var(--content-ddbtn-toopen, var(--content-ddbtn-toclose));
 }
 
 [iam-select-placeholder]
@@ -62,23 +80,30 @@
 [iam-select-placeholder]
 , [iam-select-title]
 , [iam-select-item] {
-	display: none;
 	overflow: hidden;
 	padding: 0 2ex 0 1ex;
 	position: relative;
 	white-space: nowrap;
 }
 
-[iam-select-val~= iam-select-is-open]:checked
-+ [iam-select-item] {
-	text-decoration: underline;
+[iam-select-placeholder] {
+	--disp-holder-if-undef-or-open: var(--iam-select-is-undef, var(--iam-select-is-open)) block;
+	display: var(--disp-holder-if-undef-or-open, none);
 }
 
-[iam-select-placeholder]
-, [iam-select-title ~= iam-select-is-open]
-, [iam-select-item ~= iam-select-is-open]
-, [iam-select-val]:checked + [iam-select-item] {
-	display: block;
+[iam-select-title]
+, [iam-select-item] {
+	--disp-if-open: var(--iam-select-is-open) block;
+	display: var(--disp-if-open, none);
+}
+
+[iam-select-val]:checked
++ [iam-select-item] {
+	display: block; /* always shown if checked */
+
+	--decor-if-open: var(--iam-select-is-open) underline;
+	--decor-if-closed: var(--iam-select-is-closed) none;
+	text-decoration: var(--decor-if-open, --decor-if-closed);
 }
 
 [iam-select-val][disabled]
@@ -95,9 +120,16 @@
 	background: var(--iam-select-c-back);
 }
 
-[iam-select-item ~= iam-select-is-open]:hover {
-	background: var(--iam-select-c-2nd-back);
-	color: var(--iam-select-c-2nd-fore);;
+[iam-select-item]:hover {
+	--iam-select-item-mouseover: ;
+}
+
+[iam-select-item] {
+	--backclr-if-open-and-hover: var(--iam-select-is-open) var(--iam-select-item-mouseover) var(--iam-select-c-2nd-back);
+	background: var(--backclr-if-open-and-hover);
+
+	--foreclr-if-open-and-hover: var(--iam-select-is-open) var(--iam-select-item-mouseover) var(--iam-select-c-2nd-fore);
+	color: var(--foreclr-if-open-and-hover);
 }
 
 [iam-select-val][disabled]

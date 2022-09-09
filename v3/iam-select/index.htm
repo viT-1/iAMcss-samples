@@ -44,18 +44,17 @@
 	<script type="text/x-template" id="iam-select">
 		<div :iam-select="iamMods" :disabled="disabled" :title="ttl" :id="id" v-on-clickaway="away">
 			<div iam-select-frame>
-				<span iam-select-placeholder v-if="isOpenState || undef"
+				<span iam-select-placeholder
 					@click="toggleVisibility" v-html="placeholder || optPlaceholder" />
 				<template v-for="(opt, i) in calcOptions">
-				<label v-if="opt.groupTitle" :iam-select-title="'iam-select-' + iamModO"
+				<label v-if="opt.groupTitle" iam-select-title
 					:disabled="calcGroups[opt.groupIndex].disabled">{{opt.groupTitle}}</label>
-				<input :iam-select-val="'iam-select-' + iamModO" type="radio" :name="name" :disabled="opt.disabled"
+				<input iam-select-val type="radio" :name="name" :disabled="opt.disabled"
 					:id="id+'['+i+']'" :value="opt.value" :checked="opt.selected" />
-				<label :iam-select-item="'iam-select-' + iamModO"
+				<label iam-select-item
 					:for="id+'['+i+']'" v-html="opt.html || opt.value" @[!opt.disabled && 'click']="onSelect(opt)" />
 				</template>
-				<label v-if="isOpenState" iam-select-ddbtn="toclose" @click="toggleVisibility">▲</label>
-				<label v-else iam-select-ddbtn="toopen" @click="toggleVisibility">▼</label>
+				<button iam-select-ddbtn @click.prevent="toggleVisibility"></button>
 			</div>
 			<div iam-select-slot><slot></slot></div>
 		</div>
