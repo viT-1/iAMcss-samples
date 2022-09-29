@@ -14,15 +14,9 @@
 	color: ButtonText;
 	cursor: pointer; /* mozilla forms.css label cursor can't be overrided! */
 	display: inline-block;
-	margin: 0 .5ex .5ex 0;
 	padding: 1px 1ex;
 	position: relative;
 	clear: both; /* fix float icons */
-}
-
-[iam-btn ~= iam-dd-list] {
-	background: none;
-	margin-right: 0;
 }
 
 /* simplest btn (mix) */
@@ -48,26 +42,26 @@
 
 /* specificy but not using js --focus state */
 [iam-btn]:focus [iam-btn-title]
-, [iam-btn-title ~= focus]
+, [iam-btn-title ~= "focus"]
 , [iam-btn-title]:focus {
 	text-decoration: underline;
 }
 
 /* border is native for push-button */
-[iam-btn ~= bordered]
-, [iam-btn ~= push] {
+[iam-btn ~= "bordered"]
+, [iam-btn ~= "push"] {
 	border: 1px solid;
 	padding: 0 1ex;
 }
 
-[iam-btn ~= push] {
+[iam-btn ~= "push"] {
 	background: DodgerBlue;
 	color: ButtonFace;
 }
 
 /* individual button style without common theme */
-[iam-btn ~= rounded]
-, [iam-dd-list ~= rounded] {
+[iam-btn ~= "rounded"]
+, [iam-dd-list ~= "rounded"] {
 	border-radius: 1ex;
 }
 
@@ -83,7 +77,7 @@
 }
 
 /* crisp part of ico! */
-[iam-btn-title ~= i]:before {
+[iam-btn-title ~= "i"]:before {
 	content: " "; /* generated content (instead of background-image) not scaled!!! */
 	display: inline-block;
 	height: 16px;
@@ -102,7 +96,7 @@
 	margin: 0 0 0 .5ex;
 }
 
-[iam-dd-btn ~= i]:after {
+[iam-dd-btn ~= "i"]:after {
 	display: inline-block;
 	content: ' ';
 	width: 16px;
@@ -112,19 +106,19 @@
 /* specificy but only for standard attribute */
 /* :disabled may not working, because of tag */
 [disabled] [iam-btn-i]
-, [disabled] [iam-dd-btn ~= i]:after
-, [disabled] [iam-btn-title ~= i]:before
-, [disabled][iam-btn-title ~= i]:before {
+, [disabled] [iam-dd-btn ~= "i"]:after
+, [disabled] [iam-btn-title ~= "i"]:before
+, [disabled][iam-btn-title ~= "i"]:before {
 	opacity: .5;
 }
 
 [iam-dd-chk-expanded]
-+ [iam-dd-btn ~= i]:after {
++ [iam-dd-btn ~= "i"]:after {
 	background: url(ico/dd-not-expanded_tn.gif);
 }
 
 [iam-dd-chk-expanded]
-+ [iam-dd-btn ~= utf]:after {
++ [iam-dd-btn ~= "utf"]:after {
 	content: '\25be';
 }
 
@@ -139,12 +133,12 @@
 }
 
 [iam-dd-chk-expanded]:checked
-+ [iam-dd-btn ~= i]:after {
++ [iam-dd-btn ~= "i"]:after {
 	background: url(ico/dd-expanded_tn.gif);
 }
 
 [iam-dd-chk-expanded]:checked
-+ [iam-dd-btn ~= utf]:after {
++ [iam-dd-btn ~= "utf"]:after {
 	content: '\25b4';
 }
 
@@ -154,6 +148,8 @@
 }
 
 [iam-dd-list] {
+	--iam-dd-list--: ;
+
 	display: block;
 	background: ButtonFace;
 	position: absolute;
@@ -165,7 +161,7 @@
 	padding: 0;
 }
 
-[iam-dd-list ~= bordered] {
+[iam-dd-list ~= "bordered"] {
 	border: 1px solid;
 	margin: 0 0 0 -1px;
 }
@@ -174,6 +170,12 @@
 	float: right;
 	text-transform: uppercase;
 	padding: 5px 1ex 5px 0;
+}
+
+[iam-btn] {
+	margin: 0 .5ex .5ex 0;
+	--iam-dd-list-m-right: var(--iam-dd-list--) 0;
+	margin-right: var(--iam-dd-list-m-right, .5ex);
 }
 /* </button dropdown> */
 

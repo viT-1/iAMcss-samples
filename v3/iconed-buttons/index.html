@@ -10,27 +10,32 @@
 	margin: .5em 0;
 }
 
-[iam-h ~= h1] {
+[iam-h ~= "h1"] {
 	font-size: 1.6em;
 }
 
-[iam-h ~= h2] {
+[iam-h ~= "h2"] {
 	font-size: 1.2em;
 }
 
 /* <iam-example-area> */
 [iam-example-area] {
+	--iam-example-area--: ;
+
 	background: #bbc;
 	font-family: Arial;
 	padding: 1em;
 }
 
-[iam-p ~= iam-example-area] {
-	margin: 1em 0 0;
+[iam-p] {
+	--iam-example-area-margin: var(--iam-example-area--) 1em 0 0;
+	margin: var(--iam-example-area-margin, inherit);
 }
 
-[iam-p ~= iam-example-area]:first-child {
-	margin-top: 0;
+/* IE11 & Chrome34 can't use toggle var technique */
+[iam-p]:first-child {
+	--iam-example-area-margin-top: var(--iam-example-area--) 0;
+	margin-top: var(--iam-example-area-margin-top, inherit);
 }
 
 input[iam-example-disabled-chk]:not([checked])
@@ -119,9 +124,9 @@ a for hyperlinks, label for titles/headings (not as button title).</p>
 		<input iam-dd-chk-expanded id="example02[0]" type="checkbox" hidden />
 		<label iam-dd-btn="i" iam-btn-title for="example02[0]">Rounded img drop</label>
 		<ul iam-dd-list="rounded">
-			<li><button iam-btn="iam-dd-list" iam-btn-title><span iam-btn-title-key>S</span>tand up</button></li>
-			<li><button iam-btn="iam-dd-list" iam-btn-title>Tear <span iam-btn-title-key>d</span>rop</button></li>
-			<li><button iam-btn="iam-dd-list" iam-btn-title disabled title="You can't do that!">
+			<li><button iam-btn iam-btn-title><span iam-btn-title-key>S</span>tand up</button></li>
+			<li><button iam-btn iam-btn-title>Tear <span iam-btn-title-key>d</span>rop</button></li>
+			<li><button iam-btn iam-btn-title disabled title="You can't do that!">
 				<span iam-btn-title-key>T</span>ranclucate</button></li>
 		</ul>
 	</b>
@@ -129,11 +134,11 @@ a for hyperlinks, label for titles/headings (not as button title).</p>
 		<input iam-dd-chk-expanded id="example02[1]" type="checkbox" hidden />
 		<label iam-dd-btn="i" iam-btn-title for="example02[1]">Bordered img drop</label>
 		<ul iam-dd-list="bordered">
-			<li><button iam-btn="iam-dd-list" iam-btn-title>
+			<li><button iam-btn iam-btn-title>
 				<span iam-btn-title-key>S</span>tand up</button><span iam-dd-li-key>Ctrl + S</span></li>
-			<li><button iam-btn="iam-dd-list" iam-btn-title>
+			<li><button iam-btn iam-btn-title>
 				Tear <span iam-btn-title-key>d</span>rop</button><span iam-dd-li-key>Ctrl + D</span></li>
-			<li><button iam-btn="iam-dd-list" iam-btn-title disabled title="You can't do that!">
+			<li><button iam-btn iam-btn-title disabled title="You can't do that!">
 				<span iam-btn-title-key>T</span>ranclucate</button></li>
 		</ul>
 	</b>
@@ -141,13 +146,13 @@ a for hyperlinks, label for titles/headings (not as button title).</p>
 		<input iam-dd-chk-expanded id="example02[3]" type="checkbox" hidden />
 		<label iam-dd-btn="utf" iam-btn-title for="example02[3]">Char dropdown</label>
 		<ul iam-dd-list>
-			<li><button iam-btn="iam-dd-list" iam-btn-title>
+			<li><button iam-btn iam-btn-title>
 				<span iam-btn-title-key>S</span>tand up
 				</button></li>
-			<li><button iam-btn="iam-dd-list" iam-btn-title>
+			<li><button iam-btn iam-btn-title>
 				Tear <span iam-btn-title-key>d</span>rop
 				</button></li>
-			<li><button iam-btn="iam-dd-list" iam-btn-title disabled title="You can't do that!">
+			<li><button iam-btn iam-btn-title disabled title="You can't do that!">
 				<span iam-btn-title-key>T</span>ranclucate</button></li>
 		</ul>
 	</b>
@@ -156,13 +161,13 @@ a for hyperlinks, label for titles/headings (not as button title).</p>
 		<input iam-dd-chk-expanded id="example02[4]" type="checkbox" hidden />
 		<label iam-dd-btn="utf" for="example02[4]"><!--IE6fix--></label>
 		<ul iam-dd-list>
-			<li><button iam-btn="iam-dd-list">
+			<li><button iam-btn>
 				<span iam-btn-title="i i-chrome">
 				<span iam-btn-title-key>C</span>hrome</span></button></li>
-			<li><button iam-btn="iam-dd-list" disabled title="No way!">
+			<li><button iam-btn disabled title="No way!">
 				<span iam-btn-title="i i-edge">
 				<span iam-btn-title-key>E</span>dge</span></button></li>
-			<li><button iam-btn="iam-dd-list">
+			<li><button iam-btn>
 				<span iam-btn-title="i i-opera">
 				<span iam-btn-title-key>O</span>pera</span></button></li>
 			<li><b iam-btn iam-btn-title>Not iconed list item</b></li>
@@ -194,13 +199,13 @@ which make focus on all dropdown items at the same time!</p>
 		<input iam-dd-chk-expanded id="ex03a05c[0]" type="checkbox" hidden />
 		<label iam-dd-btn="utf" iam-btn-title for="ex03a05c[0]">Char dropdown</label>
 		<ul iam-dd-list>
-			<li><button iam-btn="iam-dd-list">
+			<li><button iam-btn>
 				<span iam-btn-title><span iam-btn-title-key>S</span>tand up</span>
 				</button></li>
-			<li><button iam-btn="iam-dd-list">
+			<li><button iam-btn>
 				<span iam-btn-title>Tear <span iam-btn-title-key>d</span>rop</span>
 				</button></li>
-			<li><button iam-btn="iam-dd-list" disabled title="You can't do that!">
+			<li><button iam-btn disabled title="You can't do that!">
 				<span iam-btn-title><span iam-btn-title-key>T</span>ranclucate</span>
 				</button></li>
 		</ul>
@@ -211,20 +216,20 @@ which make focus on all dropdown items at the same time!</p>
 <p>Simplest button behaviour but text-styled, without rectangle background & :visited redefining.</p>
 <p>Disabled icons aren't change opacity because of its common space (not own as in buttons rectangles).</p>
 <div id="example-04-content" iam-example-area>
-	<p iam-p="iam-example-area">
+	<p iam-p>
 		a: <a href="#" iam-ref-btn iam-ref-btn-title>Title mix pseudo-link</a>,
 		<a href="#" iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><span iam-ref-btn-title>Iconed</span></a>,
 		<a href="#" iam-ref-btn iam-ref-btn-title disabled>Disabled</a>,
 		<a href="#" iam-ref-btn><span iam-ref-btn-title>No mix pseudo-link</span></a>
 	</p>
-	<p iam-p="iam-example-area">
+	<p iam-p>
 		button: <button iam-ref-btn iam-ref-btn-title>Title mix pseudo-link</button>,
 		<button iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><span iam-ref-btn-title>Iconed</span></button>,
 		<button iam-ref-btn iam-ref-btn-title disabled>Disabled</button>,
 		<button iam-ref-btn disabled><img iam-ref-btn-i src="ico/print.ico"><span iam-ref-btn-title>Iconed & disabled</span></button>,
 		<button iam-ref-btn><span iam-ref-btn-title>No mix pseudo-link</span></button>
 	</p>
-	<p iam-p="iam-example-area">Some other text</p>
+	<p iam-p>Some other text</p>
 </div>
 <label iam-h="h2" role="heading" id="example-05" for="example-05-content">
 	Example 05: <s>web-components</s> (IE11) vue-components</label>

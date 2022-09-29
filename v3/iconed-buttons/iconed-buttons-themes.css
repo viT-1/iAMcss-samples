@@ -1,8 +1,8 @@
-[iam-themes ~= rounded] {
+[iam-themes ~= "rounded"] {
 	--rounded-border-radius: 1ex;
 }
 
-[iam-themes ~= light] {
+[iam-themes ~= "light"] {
 	--light-iam-btn-background-color: ButtonFace;
 }
 
@@ -14,5 +14,5 @@
 }
 /* </iam-theme = rounded> */
 
-[iam-themes ~= dark] {
+[iam-themes ~= "dark"] {
 }
