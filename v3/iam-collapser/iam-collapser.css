@@ -1,0 +1,113 @@
+[iam-themes ~= "swamp"] {
+	--thm-hue: 115;
+	--thm-sat: 20%;
+}
+
+[iam-themes ~= "sea"] {
+	--thm-hue: 215;
+	--thm-sat: 20%;
+}
+
+[iam-app] {
+	--ffmBase: Verdana;
+	--sz_xxx: 3ex;
+	--sz_xx: 2ex;
+	--sz_x: 1ex;
+	--sz_s: .5ex;
+	--sz_m: 1em;
+	--thin: 1px;
+
+	font-family: var(--ffmBase, sans-serif);
+}
+
+/* #region iam-collapser */
+/*
+It seems not possible to set custom properties using camelCase or PascalCase via style or :style in a Vue component.
+https://github.com/vuejs/vue/issues/7346#issuecomment-553814476
+*/
+[iam-collapser] {
+	--clr-shoal-back: hsla(var(--thm-hue), var(--thm-sat), 28%, 1);
+	--clr-rase-back: hsla(var(--thm-hue), var(--thm-sat), 14%, 1);
+	--clr-base-back: hsla(var(--thm-hue), var(--thm-sat), 7%, 1);
+
+	--clr-rase-front: hsla(var(--thm-hue), var(--thm-sat), 56%, 1);
+	--clr-base-front: var(--clr-shoal-back);
+
+	--iam-collapser-border-color: var(--clr-base-front);
+	--iam-collapser-p-margin: 0;
+
+	margin-bottom: var(--sz_xx)
+}
+
+/* specificy workaround for iam-collapser p */
+p:first-child {
+	margin-top: var(--iam-collapser-p-margin, auto);
+}
+
+/* specificy workaround for iam-collapser p */
+p:last-child {
+	margin-bottom: var(--iam-collapser-p-margin, auto);
+}
+
+/* #region iam-collapser-header */
+[iam-collapser-header] {
+	--iam-collapser-header-cur: pointer;
+	--iam-collapser-header-color: var(--clr-rase-front);
+	--iam-collapser-header-back: var(--clr-rase-back);
+
+	background: var(--iam-collapser-header-back);
+	border-top: solid var(--thin) var(--iam-collapser-border-color);
+	color: var(--iam-collapser-header-color);
+	cursor: var(--iam-collapser-header-cur);
+	font-size: var(--sz_xx);
+	font-weight: bolder;
+	padding: var(--sz_x) var(--sz_xx);
+}
+
+[iam-collapser-header ~= "is-disabled:true"] {
+	--iam-collapser-header-cur: default;
+}
+
+[iam-collapser-header]::before {
+	--iam-collapser-header-arrow-m-r: var(--sz_x);
+}
+
+/* UX: arrow direction https://learn.microsoft.com/ru-ru/windows/win32/uxguide/ctrl-progressive-disclosure-controls */
+[iam-collapser-header ~= "is-open:false"]::before {
+	--iam-collapser-header-arrow: '►';
+}
+
+[iam-collapser-header ~= "is-open:true"]::before {
+	--iam-collapser-header-arrow: '▼';
+}
+
+[iam-collapser-header ~= "is-disabled:true"]::before {
+	--iam-collapser-header-arrow: 'Disabled: ';
+	--iam-collapser-header-arrow-m-r: 0;
+}
+
+[iam-collapser-header]::before {
+	content: var(--iam-collapser-header-arrow);
+	margin-right: var(--iam-collapser-header-arrow-m-r);
+}
+
+/* #endregion */
+
+/* #region iam-collapser-area */
+[iam-collapser-area ~= "is-open:false"] {
+	display: none;
+}
+
+[iam-collapser-header ~= "is-disabled:true"]
+, [iam-collapser-area ~= "is-disabled:true"] {
+	opacity: 50%;
+}
+
+[iam-collapser-area] {
+	background: var(--clr-base-back);
+	border: solid var(--thin) var(--iam-collapser-border-color);
+	color: var(--clr-rase-front);
+	padding: var(--sz_xx);
+}
+/* #endregion */
+/* #endregion */

@@ -98,7 +98,16 @@
 			tags: {
 				markup: ['aria', 'html4'],
 				script: ['es5', 'vue'],
-				style: ['iam', 'svg'],
+				style: ['iam', 'svg', 'vars'],
+			},
+		},
+		{
+			link: 'https://vit-1.github.io/iAMcss-samples/v3/styled-checkbox-radio/',
+			name: 'styled checkboxes',
+			descr: 'Custom styling for radio items, checkboxes & star rating almost no use js',
+			tags: {
+				markup: ['html4'],
+				style: ['iam', 'fonticons', 'vars'],
 			},
 		},
 		{
@@ -118,7 +127,17 @@
 			tags: {
 				markup: ['aria', 'html4'],
 				script: ['es5', 'vue'],
-				style: ['iam'],
+				style: ['iam', 'vars'],
+			},
+		},
+		{
+			link: 'https://vit-1.github.io/iAMcss-samples/v3/iam-collapser/',
+			name: 'iam-collapser',
+			descr: 'Text heading collapsers with color theme support',
+			tags: {
+				markup: ['aria', 'html5'],
+				script: ['es5', 'vue'],
+				style: ['iam', 'skins', 'vars'],
 			},
 		},
 		{
