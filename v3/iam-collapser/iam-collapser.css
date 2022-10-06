@@ -8,16 +8,23 @@
 	--thm-sat: 20%;
 }
 
+[iam-body] {
+	--clr-base-front: hsla(var(--thm-hue), var(--thm-sat), 28%, 1);
+	--clr-deep-back: hsla(var(--thm-hue), var(--thm-sat), 3.5%, 1);
+	--ffm-base: Verdana;
+
+	background: var(--clr-deep-back);
+	color: var(--clr-base-front);
+	font-family: var(--ffm-base, sans-serif);
+}
+
 [iam-app] {
-	--ffmBase: Verdana;
 	--sz_xxx: 3ex;
 	--sz_xx: 2ex;
 	--sz_x: 1ex;
 	--sz_s: .5ex;
 	--sz_m: 1em;
 	--thin: 1px;
-
-	font-family: var(--ffmBase, sans-serif);
 }
 
 /* #region iam-collapser */
