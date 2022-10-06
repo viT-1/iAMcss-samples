@@ -18,6 +18,8 @@ Vue.component('iam-collapser', {
 			return (!this.isOpen).toString();
 		},
 		cssProps: function () {
+			/* this code isn't working in IE11 */
+			/* https://github.com/nuxodin/ie11CustomProperties/issues/93 */
 			return this.hueVal ? { '--thm-hue': this.hueVal } : false;
 		},
 		iamStates: function () {
