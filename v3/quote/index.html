@@ -1,136 +1,39 @@
-<style>
-/* #region :root or [iam-themes ~= some-theme] */
-:root {
-	--iam-h-display: block;
-	--iam-h-font-weight: bolder;
-	--iam-h-font-style: normal;
-
-	--iam-h1-font-size: 1.2em;
-	--iam-h2-font-size: 1.1em;
-
-	--iam-p-font-size: inherit;
-	--iam-q-background-color: orange;
-}
-/* #endregion */
-
-/* #region mod selectors should define variables */
-/* iam-article context variables set */
-[iam-article] {
-	--text-space: 4ex;
-	--text-secondary-space: 1em;
-
-	/* [iam-h *= "iam-article h1"] was broken into pieces without words order dependency (part 1) */
-	--iam-h1-font-size: 1.4em;
-	--iam-h1-margin-bottom: 1.4em;
-
-	--iam-h2-font-size: 1.2em;
-
-	--iam-q-background-color: #ccc;
-}
-
-[iam-q] {
-	--iam-p-font-size: larger;
-}
-
-/* [iam-h *= "iam-article h1"] was broken into pieces without words order dependency (part 2) */
-[iam-h ~= h1] {
-	--iam-h-font-size: var(--iam-h1-font-size);
-	--iam-h-margin-bottom: var(--iam-h1-margin-bottom);
-}
-/* #endregion */
-
-/* #region core selectors (may be mixed as iam-article-h) should use variables */
-/* TODO: plain values shoud be defined in themes */
-[iam-article] {
-	width: 500px;
-	margin: var(--text-space) auto;
-}
-
-[iam-h] {
-	display: var(--iam-h-display);
-	font-size: var(--iam-h-font-size);
-	font-style: var(--iam-h-font-style);
-	font-weight: var(--iam-h-font-weight);
-	margin-bottom: var(--iam-h-margin-bottom, auto);
-}
-
-[iam-p] {
-	font-size: var(--iam-p-font-size);
-	margin: 0 0 var(--text-secondary-space);
-	text-indent: var(--text-space);
-}
-
-/* #region iam-q */
-[iam-q] {
-	background: var(--iam-q-background-color);
-	margin: 0 0 var(--text-secondary-space);
-	padding: var(--text-space);
-
-	--iam-list-margin: 0;
-	--iam-list-padding: 0;
-}
-
-[iam-q-footer] {
-	text-align: right;
-}
-
-[iam-q-copyright] {
-	font-style: italic;
-}
-
-[iam-q-copyright-name]::before {
-	content: '\00a9';
-	font-style: italic;
-}
-/* #endregion */
-/* #region iam-list */
-[iam-list] {
-	margin: var(--iam-list-margin, auto);
-	padding: var(--iam-list-padding, auto);
-}
-
-[iam-li] {
-	font-size: var(--iam-p-font-size); /* same as iam-p, but changed with iam-q context */
-	margin-left: var(--text-space);
-}
-
-[iam-li]::after {
-	content: ';'
-}
-
-[iam-li]:last-child::after {
-	content: '.'
-}
-/* #endregion */
-/* #endregion */
-</style>
-<em iam-h="h1">Вёрстка с контекстными модификаторами</em>
-<article iam-article>
-	<em iam-h="h1" >Цитаты классиков о привычках</em>
-	<blockquote iam-q>
-		<p iam-p>Три дела, однажды начавши, трудно кончить:</p>
-		<ol iam-list="ol">
-			<li iam-li>вкушать хорошую пищу</li>
-			<li iam-li>беседовать с возвратившимся из похода другом</li>
-			<li iam-li>чесать, где чешется</li>
-		</ol>
-		<footer iam-q-footer>
-			<p iam-q-copyright><cite iam-q-copyright-name>Козьма Прутков</cite></p>
-		</footer>
-	</blockquote>
-	<p iam-p>
-		Козьма́ Петро́вич Прутко́в — литературная маска, под которой в 50—60-е годы XIX века
-		выступали поэты Алексей Константинович Толстой и братья Жемчужниковы
-		(Владимир, Алексей и Александр Михайловичи).
-	</p>
-	<blockquote iam-q>
-		<p iam-p>Чем больше привычек, тем меньше свободы.</p>
-		<footer iam-q-footer>
-			<p iam-q-copyright><cite iam-q-copyright-name>Иммануил Кант</cite></p>
-		</footer>
-	</blockquote>
-	<p iam-p>
-		Иммануил Кант — немецкий философ и один из центральных мыслителей эпохи Просвещения.
-	</p>
-</article>
-<p iam-p>Original sourcecode published in the <a href="https://vit-1.github.io/iAMcss-samples/">list of iAMcss-examples</a>.</p>
+<!DOCTYPE html>
+<html iam-themes="sea">
+<head>
+	<link rel="stylesheet" type="text/css" href="../core-html/index.css" />
+	<link rel="stylesheet" type="text/css" href="quote.css" />
+</head>
+<body iam-body="pg-quote">
+	<em iam-h="h1">Вёрстка с контекстными модификаторами</em>
+	<article iam-article>
+		<em iam-h="h1" >Цитаты классиков о привычках</em>
+		<blockquote iam-q>
+			<p iam-p>Три дела, однажды начавши, трудно кончить:</p>
+			<ol iam-list="ordered text">
+				<li iam-li>вкушать хорошую пищу</li>
+				<li iam-li>беседовать с возвратившимся из похода другом</li>
+				<li iam-li>чесать, где чешется</li>
+			</ol>
+			<footer iam-q-footer>
+				<p iam-q-copyright><cite iam-q-copyright-name>Козьма Прутков</cite></p>
+			</footer>
+		</blockquote>
+		<p iam-p>
+			Козьма́ Петро́вич Прутко́в — литературная маска, под которой в 50—60-е годы XIX века
+			выступали поэты Алексей Константинович Толстой и братья Жемчужниковы
+			(Владимир, Алексей и Александр Михайловичи).
+		</p>
+		<blockquote iam-q>
+			<p iam-p>Чем больше привычек, тем меньше свободы.</p>
+			<footer iam-q-footer>
+				<p iam-q-copyright><cite iam-q-copyright-name>Иммануил Кант</cite></p>
+			</footer>
+		</blockquote>
+		<p iam-p>
+			Иммануил Кант — немецкий философ и один из центральных мыслителей эпохи Просвещения.
+		</p>
+	</article>
+	<p iam-p>Original sourcecode published in the <a href="https://vit-1.github.io/iAMcss-samples/">list of iAMcss-examples</a>.</p>
+</body>
+</html>

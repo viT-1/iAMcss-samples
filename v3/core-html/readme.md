@@ -1,0 +1,1 @@
+Styles for simple (no any js such as components etc) html tags.

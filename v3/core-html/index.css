@@ -1,0 +1,87 @@
+/* May be preprocessed and have one css file or nested folder with index.css to each entity */
+
+/* #region :root or [iam-themes ~= some-theme] */
+:root {
+	--iam-h-display: block;
+	--iam-h-font-weight: bolder;
+	--iam-h-font-style: normal;
+
+	--iam-h1-font-size: 1.2em;
+	--iam-h2-font-size: 1.1em;
+}
+/* #endregion */
+
+/* #region iam-article */
+[iam-article] {
+	--text-space: 4ex;
+	--text-secondary-space: 1em;
+
+	--iam-h1-font-size: 1.4em;
+	--iam-h1-margin-bottom: 1.4em;
+
+	--iam-h2-font-size: 1.2em;
+
+	--iam-article-margin: var(--text-space) auto;
+
+	width: var(--iam-article-width);
+	margin: var(--iam-article-margin);
+}
+/* #endregion */
+
+/* #region iam-h */
+[iam-h] {
+	display: var(--iam-h-display);
+	font-size: var(--iam-h-font-size);
+	font-style: var(--iam-h-font-style);
+	font-weight: var(--iam-h-font-weight);
+	margin-bottom: var(--iam-h-margin-bottom, auto);
+}
+
+[iam-h ~= h1] {
+	--iam-h-font-size: var(--iam-h1-font-size);
+	--iam-h-margin-bottom: var(--iam-h1-margin-bottom);
+}
+/* #endregion */
+
+/* #region iam-p */
+[iam-p] {
+	--iam-p-font-size: inherit;
+	--iam-p-text-indent: var(--text-space); /* can be redefined in specific context */
+	--iam-p-margin: 0 0 var(--text-secondary-space); /* can be redefined in specific context */
+
+	font-size: var(--iam-p-font-size);
+	margin: var(--iam-p-margin);
+	text-indent: var(--iam-p-text-indent);
+}
+/* #endregion */
+
+/* #region iam-list */
+[iam-list] {
+	--iam-list-margin: 0;
+	--iam-list-padding: 0;
+
+	margin: var(--iam-list-margin, auto);
+	padding: var(--iam-list-padding, auto);
+}
+
+[iam-list ~= "text"] {
+	--iam-li-separator-content: ';';
+	--iam-li-end-content: '.';
+}
+
+[iam-li] {
+	--iam-li-font-size: var(--iam-p-font-size); /* same as iam-p */
+	--iam-li-margin-left: var(--text-space); /* by default should be the same as iam-p text-indent */
+
+	font-size: var(--iam-li-font-size);
+	margin-left: var(--iam-li-margin-left);
+}
+
+[iam-li]::after {
+	content: var(--iam-li-separator-content);
+}
+
+[iam-li]:last-child::after {
+	content: var(--iam-li-end-content);
+}
+/* #endregion */
