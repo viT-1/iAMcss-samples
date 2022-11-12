@@ -19,6 +19,7 @@
 	clear: both;
 	border-width: 1ex;
 	border-style: solid;
+	box-sizing: border-box;
 	margin-bottom: 1em;
 	margin-bottom: var(--text-v-space, 1rem);
 	overflow: hidden;
@@ -90,7 +91,7 @@
 }
 
 [iam-floated-row ~= "lem-pirx"] {
-	width: 540px;
+	width: 544px;
 }
 
 [iam-floated-column ~= "lem-pirx"] {
