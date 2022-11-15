@@ -15,6 +15,19 @@
 	width: 720px;
 }
 
+/*	#region iam-article-cols css-var fallback */
+[iam-article-col]:nth-child(2n) {
+	color: InfoBackground;
+	background: InfoText;
+}
+
+[iam-article-cols]
+, [iam-article-col]:nth-child(2n+1) {
+	color: InfoText;
+	background: InfoBackground;
+}
+/* #endregion */
+
 /*	По БЭМу margin не у самого блока iam-floated-columns,
 **	а у примиксованного элемента внешнего блока iam-article
 **	В других страницах можно переопределить значение
@@ -28,16 +41,17 @@
 	margin: 0 0 1rem;
 	margin: var(--iam-article-cols-margin);
 
-	color: InfoText;
 	color: var(--iam-article-cols-text-color, InfoText);
-	background: InfoBackground;
 	background: var(--iam-article-cols-back-color, InfoBackground);
 }
 
+[iam-article-col]:nth-child(2n+1) {
+	color: var(--iam-article-col-2n1-text-color, InfoText);
+	background: var(--iam-article-col-2n1-back-color, InfoBackground);
+}
+
 [iam-article-col]:nth-child(2n) {
-	color: InfoBackground;
 	color: var(--iam-article-col-2n-text-color, InfoBackground);
-	background: InfoText;
 	background: var(--iam-article-col-2n-back-color, InfoText);
 }
 /* #endregion */
@@ -51,25 +65,47 @@
 /* #region if css-vars supported even-odd variant */
 [iam-article-cols ~= "pelevin"] {
 	--iam-article-cols-text-color: khaki;
-	--iam-article-cols-back-color: olive;
+	--iam-article-cols-back-color: white;
 	/* inverse even column colors */
-	--iam-article-col-2n-text-color: var(--iam-article-cols-back-color);
+	--iam-article-col-2n1-text-color: var(--iam-article-cols-text-color);
+	--iam-article-col-2n1-back-color: olive;
+	--iam-article-col-2n-text-color: olive;
 	--iam-article-col-2n-back-color: var(--iam-article-cols-text-color);
 }
 /* #endregion */
 /* #region if css-vars is not supported even-odd variant */
-[iam-article-cols ~= "lem"] {
+/*	вынуждены писать более специфчные селекторы вместо переменных,
+**	чтобы перевесить селекторы с css-переменными: iam-article-cols css-var fallback
+*/
+[iam-article-cols ~= "lem"] /* для border */
+, [iam-article-col ~= "lem"]:nth-child(2n)
+, [iam-article-col ~= "lem"]:nth-child(2n+1) {
 	color: lightskyblue;
+}
+
+[iam-article-cols ~= "lem"] {
+	background: lightskyblue;
+}
+
+[iam-article-col ~= "lem"]:nth-child(2n+1) {
 	background: mediumblue;
 }
 
 [iam-article-col ~= "lem"]:nth-child(2n) {
-	color: lightskyblue;
 	background: midnightblue;
 }
 /* #endregion */
 
-[iam-article-cols ~= "pirx"] {
+[iam-article-cols ~= "lem"] {
+	--iam-article-cols-text-color: lightskyblue;
+	/* inverse even column colors */
+	--iam-article-col-2n1-text-color: lightskyblue;
+	--iam-article-col-2n1-back-color: mediumblue;
+	--iam-article-col-2n-text-color: lightskyblue;
+	--iam-article-col-2n-back-color: midnightblue;
+}
+
+[iam-article-cols ~= "pirx-ru"] {
 	width: 544px;
 }
 /* #endregion */

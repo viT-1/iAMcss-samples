@@ -3,6 +3,10 @@
 	column-gap: 1ex;
 }
 
+[iam-prop-cols ~= "cols:2"] {
+	column-count: 2;
+}
+
 [iam-prop-cols ~= "cols:3"] {
 	column-count: 3;
 }
