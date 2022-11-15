@@ -16,14 +16,14 @@
 	<link rel="stylesheet" type="text/css" href="columns-flex.css" />
 </head>
 <body iam-body="pg-columns">
-	<main iam-content>
+	<main iam-main>
+		<header iam-main-header>
+			<h1 iam-h="h1">Crossbrowser columns examples</h1>
+			<p iam-p>Стандартные отступы срегулированы вровень с&nbsp;text-indent параграфов.
+				Примеры с активным применением БЭМ-миксования.</p>
+		</header>
 		<article iam-article="float-based">
-			<header>
-				<h1 iam-h="h1">Crossbrowser columns examples</h1>
-				<p iam-p>Стандартные отступы срегулированы вровень с&nbsp;text-indent параграфов.
-					Примеры с активным применением БЭМ-миксования.</p>
-				<h2 iam-h="h2">CSS float property</h2>
-			</header>
+			<h2 iam-h="h2">CSS float property</h2>
 			<p iam-p>Пелевин, &laquo;<a href="http://pelevin.nov.ru/romans/pe-genp/index.html">Generation П</a>&raquo;:</p>
 			<div iam-floated-columns iam-article-cols="pelevin">
 				<ol iam-list="ordered" iam-floated-column="col:1/3" iam-article-col>
@@ -141,6 +141,7 @@
 		</article>
 		<article iam-article="flex-based">
 			<h2 iam-h="h2">CSS flex property</h2>
+			<p iam-p>Так себе вариант с тремя ol и start.</p>
 			<p iam-p>Пелевин, &laquo;<a href="http://pelevin.nov.ru/romans/pe-jisn/index.html">Жизнь насекомых</a>&raquo;:</p>
 			<div iam-flex-cols iam-article-cols="pelevin">
 				<ol iam-list="ordered" iam-flex-col="col:1/3" iam-article-col>
@@ -165,6 +166,8 @@
 					<li iam-li>Энтомопилог</li>
 				</ol>
 			</div>
+			<p iam-p>Ниже вариант с одним ul и авторазбивкой на колонки.</p>
+			<p iam-p>Кларк, &laquo;<a href="https://fantlab.ru/work10363">Сказки «Белого оленя»</a>&raquo;:</p>
 		</article>
 	</main>
 </body>

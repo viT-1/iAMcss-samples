@@ -9,15 +9,23 @@
 }
 /* #endregion */
 
+[iam-article]
+, [iam-main-header] {
+	margin: auto; /* css-var fallback */
+	width: 640px; /* css-var fallback */
+}
+
+[iam-main-header] {
+	width: var(--iam-main-header-width, 640px);
+}
+
 /* #region iam-article */
 [iam-article] {
 	--iam-h1-font-size: 1.4rem;
 	--iam-h2-font-size: 1.2rem;
 
-	width: 640px; /* css-var fallback */
-	width: var(--iam-article-width, 640px);
-	margin: auto; /* css-var fallback */
 	margin: var(--iam-article-margin, var(--text-v-space) auto);
+	width: var(--iam-article-width, 640px);
 }
 /* #endregion */
 

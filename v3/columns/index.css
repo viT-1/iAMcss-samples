@@ -3,18 +3,19 @@
 /* местный root для css-переменных */
 [iam-body ~= "pg-columns"] {
 	--iam-article-cols-margin: var(--text-margin);
+	--iam-main-header-width: 720px;
 	--iam-p-text-indent: var(--text-space);
 }
 
-/* #region iam-article */
-/* правильней задать соответствующие css-vars в [iam-body ~= "pg-columns"] */
+/*	#region iam-article */
+/*	Правильней задать соответствующие css-vars в [iam-body ~= "pg-columns"],
+**	также, как это сделано с iam-main-header
+*/
 [iam-article] {
-	margin: auto;
 	width: 720px;
 }
 
-/*
-**	по БЭМу margin не у самого блока iam-floated-columns,
+/*	По БЭМу margin не у самого блока iam-floated-columns,
 **	а у примиксованного элемента внешнего блока iam-article
 **	В других страницах можно переопределить значение
 **	через перекрытие селектора или css-var
