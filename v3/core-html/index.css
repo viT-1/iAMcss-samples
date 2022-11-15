@@ -131,7 +131,7 @@
 	text-align: right;
 	width: 2.2em;
 
-	content: counter(cnt, decimal-leading-zero) ') ';
+	content: counter(cnt) ') ';
 }
 /* #endregion */
 /* #endregion */
