@@ -1,20 +1,9 @@
-/* #region iam-prop-columns */
-[iam-prop-columns] {
-	box-sizing: border-box;
-	border-width: 1ex;
-	border-style: solid none;
-
+/* #region iam-prop-cols */
+[iam-prop-cols] {
 	column-gap: 1ex;
 }
 
-[iam-prop-columns ~= "cols:3"] {
+[iam-prop-cols ~= "cols:3"] {
 	column-count: 3;
 }
-
-/* #region правила связанные с контентом, а не структурой вёрстки */
-[iam-prop-columns ~= "clarke-purvis"] {
-	color: rebeccapurple;
-	background: plum;
-}
-/* #endregion */
 /* #endregion */

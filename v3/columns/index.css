@@ -2,7 +2,7 @@
 
 /* местный root для css-переменных */
 [iam-body ~= "pg-columns"] {
-	--iam-article-columns-margin: var(--text-margin);
+	--iam-article-cols-margin: var(--text-margin);
 	--iam-p-text-indent: var(--text-space);
 }
 
@@ -19,8 +19,56 @@
 **	В других страницах можно переопределить значение
 **	через перекрытие селектора или css-var
 */
-[iam-article-columns] {
+[iam-article-cols] {
+	box-sizing: border-box;
+	border-width: 1ex;
+	border-style: solid none;
+
 	margin: 0 0 1rem;
-	margin: var(--iam-article-columns-margin);
+	margin: var(--iam-article-cols-margin);
+
+	color: InfoText;
+	color: var(--iam-article-cols-text-color, InfoText);
+	background: InfoBackground;
+	background: var(--iam-article-cols-back-color, InfoBackground);
+}
+
+[iam-article-col]:nth-child(2n) {
+	color: InfoBackground;
+	color: var(--iam-article-col-2n-text-color, InfoBackground);
+	background: InfoText;
+	background: var(--iam-article-col-2n-back-color, InfoText);
+}
+/* #endregion */
+
+/* #region content depends */
+[iam-article-cols ~= "clarke"] {
+	color: rebeccapurple;
+	background: plum;
+}
+
+/* #region if css-vars supported even-odd variant */
+[iam-article-cols ~= "pelevin"] {
+	--iam-article-cols-text-color: khaki;
+	--iam-article-cols-back-color: olive;
+	/* inverse even column colors */
+	--iam-article-col-2n-text-color: var(--iam-article-cols-back-color);
+	--iam-article-col-2n-back-color: var(--iam-article-cols-text-color);
+}
+/* #endregion */
+/* #region if css-vars is not supported even-odd variant */
+[iam-article-cols ~= "lem"] {
+	color: lightskyblue;
+	background: mediumblue;
+}
+
+[iam-article-col ~= "lem"]:nth-child(2n) {
+	color: lightskyblue;
+	background: midnightblue;
+}
+/* #endregion */
+
+[iam-article-cols ~= "pirx"] {
+	width: 544px;
 }
 /* #endregion */

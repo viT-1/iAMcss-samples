@@ -1,9 +1,6 @@
 /* #region iam-floated-columns */
 [iam-floated-columns] {
 	clear: both;
-	border-width: 1ex;
-	border-style: solid none;
-	box-sizing: border-box;
 	overflow: hidden;
 }
 
@@ -54,37 +51,6 @@
 
 [iam-li ~= "floated"] {
 	float: left;
-	width: 50%;
-}
-/* #endregion */
-/* #region правила связанные с контентом, а не структурой вёрстки */
-[iam-floated-columns ~= "pe-genp"] {
-	color: khaki;
-}
-
-[iam-floated-column ~= "pe-genp"]:nth-child(2n) {
-	color: olive;
-	background: khaki;
-	/* list-style-type: decimal-leading-zero; */
-}
-
-[iam-floated-column ~= "pe-genp"]:nth-child(2n+1) {
-	background: olive;
-}
-
-[iam-floated-columns *= "lem-"] {
-	color: lightskyblue;
-}
-
-[iam-floated-column *= "lem-"] {
-	background: midnightblue;
-}
-
-[iam-floated-column *= "lem-"]:nth-child(2n+1) {
-	background: mediumblue;
-}
-
-[iam-floated-columns ~= "lem-pirx"] {
-	width: 544px;
+	width: 50%; /* В отличии от данного, селектор выше корректен - зависимость от cols:2 */
 }
 /* #endregion */
