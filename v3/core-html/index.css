@@ -4,70 +4,77 @@
 :root {
 	--text-space: 2.5rem;
 	--text-v-space: 1rem;
-
-	--iam-h-display: block;
-	--iam-h-font-weight: bolder;
-	--iam-h-font-style: normal;
-	--iam-h-margin: 0 auto var(--text-v-space);
-
-	--iam-h1-font-size: 1.2em;
-	--iam-h2-font-size: 1.1em;
-
+	--text-margin: 0 0 var(--text-v-space);
 	--iam-p-font-size: inherit;
-	--iam-p-margin: var(--iam-h-margin);
-
-	--iam-article-width: 640px;
 }
 /* #endregion */
 
 /* #region iam-article */
 [iam-article] {
-	--iam-h1-font-size: 1.4em;
-	--iam-h2-font-size: 1.2em;
-
-	--iam-article-margin: var(--text-v-space) auto;
+	--iam-h1-font-size: 1.4rem;
+	--iam-h2-font-size: 1.2rem;
 
 	width: 640px; /* css-var fallback */
-	width: var(--iam-article-width);
+	width: var(--iam-article-width, 640px);
 	margin: auto; /* css-var fallback */
-	margin: var(--iam-article-margin);
+	margin: var(--iam-article-margin, var(--text-v-space) auto);
 }
 /* #endregion */
 
 /* #region iam-h */
 [iam-h] {
 	display: block; /* css-var fallback */
-	display: var(--iam-h-display);
+	display: var(--iam-h-display, block);
 	font-size: var(--iam-h-font-size);
-	font-style: var(--iam-h-font-style);
-	font-weight: var(--iam-h-font-weight);
+	font-style: normal;
+	font-style: var(--iam-h-font-style, normal);
+	font-weight: bolder;
+	font-weight: var(--iam-h-font-weight, bolder);
 
-	margin: 0 0 1em;
-	margin: var(--iam-h-margin, auto);
+	margin: 0 0 1rem;
+	margin: var(--iam-h-margin, var(--text-margin));
 }
 
 [iam-h ~= h1] {
-	--iam-h-font-size: var(--iam-h1-font-size);
+	--iam-h-font-size: var(--iam-h1-font-size, 1.2em);
+}
+
+[iam-h ~= h2] {
+	--iam-h-font-size: var(--iam-h2-font-size, 1.1em);
 }
 /* #endregion */
 
 /* #region iam-p */
 [iam-p] {
 	font-size: var(--iam-p-font-size);
-	margin: 1em 0;
-	margin: var(--iam-p-margin);
+	margin: 1rem 0;
+	margin: var(--iam-p-margin, var(--text-margin));
+	text-indent: 0;
+	text-indent: var(--iam-p-text-indent, 0);
 }
 /* #endregion */
 
 /* #region iam-list */
+/* css-var fallbacks first */
 [iam-list] {
-	--iam-list-margin: 0;
-	--iam-list-padding: 0 0 0 var(--text-space);
-
+	list-style-type: inherit;
 	margin: 0;
-	margin: var(--iam-list-margin, 0);
 	padding: 0 0 0 4ex;
-	padding: var(--iam-list-padding, 0 0 0 var(--text-space));
+}
+
+[iam-list ~= "ordered"] {
+	list-style-type: decimal;
+	--iam-list-style-type: decimal;
+}
+
+[iam-list ~= "cnt"] {
+	--iam-list-style-type: none;
+	list-style-type: none;
+
+	--iam-list-padding: 0;
+	padding: 0;
+
+	--iam-li-padding: 0 1ex;
 }
 
 [iam-list ~= "text"] {
@@ -75,11 +82,31 @@
 	--iam-li-end-content: '.';
 }
 
-[iam-li] {
-	--iam-li-font-size: var(--iam-p-font-size); /* same as iam-p */
+/* applying css-vars last */
+[iam-list] {
+	list-style-type: var(--iam-list-style-type, inherit);
+	margin: var(--iam-list-margin, 0);
+	padding: var(--iam-list-padding, 0 0 0 var(--text-space));
+}
 
-	font-size: var(--iam-li-font-size);
+[iam-li ~= "cnt"] {
+	padding: 0 1ex;
+}
+
+[iam-li] {
+	box-sizing: border-box;
+
+	display: list-item;
+	display: (--iam-li-display, list-item);
+
+	font-size: var(--iam-li-font-size, var(--iam-p-font-size));
+	padding: var(--iam-li-padding);
 	width: var(--iam-li-width);
+}
+
+/* #region iam-list counter logic */
+[iam-li ~= "cnt"] {
+	counter-increment: cnt;
 }
 
 [iam-li]::after {
@@ -95,17 +122,8 @@
 	counter-set: cnt 0;
 }
 
-[iam-list ~= "cnt"] {
-	padding-left: 0;
-}
-
-[iam-li ~= "cnt"] {
-	counter-increment: cnt;
-
-	display: inline-block;
-}
-
 /* marker align to right */
+/*
 [iam-li ~= "cnt"]::before {
 	content: '(' counter(cnt);
 	direction: rtl;
@@ -113,12 +131,9 @@
 	padding: 0 .5ex;
 	width: 1em;
 }
-
-/*
+*/
 [iam-li ~= "cnt"]::before {
 	content: counter(cnt, decimal-leading-zero) ') ';
 }
-*/
-
 /* #endregion */
 /* #endregion */

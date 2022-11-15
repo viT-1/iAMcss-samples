@@ -2,12 +2,7 @@
 /* Redefining variables is a strict way than redefining selector's rules! */
 [iam-body ~= "pg-quote"] {
 	--iam-article-width: 500px;
-}
-
-[iam-p] {
-	--iam-p-margin: 0 0 var(--text-v-space);
-
-	text-indent: var(--text-space);
+	--iam-p-text-indent: var(--text-space);
 }
 /* #endregion */
 
@@ -19,11 +14,11 @@
 
 /* #region iam-q */
 [iam-q] {
-	--iam-q-background: #ccc;
-	
 	background: #ccc;
-	background: var(--iam-q-background);
-	margin: 0 0 var(--text-v-space);
+	background: var(--iam-q-background, #ccc);
+	margin: 0 0 1rem;
+	margin: var(--text-margin);
+	padding: 4ex;
 	padding: var(--text-space);
 }
 

@@ -1,0 +1,26 @@
+/* #region правила определяющие струтуру вёрстки */
+
+/* местный root для css-переменных */
+[iam-body ~= "pg-columns"] {
+	--iam-article-columns-margin: var(--text-margin);
+	--iam-p-text-indent: var(--text-space);
+}
+
+/* #region iam-article */
+/* правильней задать соответствующие css-vars в [iam-body ~= "pg-columns"] */
+[iam-article] {
+	margin: auto;
+	width: 720px;
+}
+
+/*
+**	по БЭМу margin не у самого блока iam-floated-columns,
+**	а у примиксованного элемента внешнего блока iam-article
+**	В других страницах можно переопределить значение
+**	через перекрытие селектора или css-var
+*/
+[iam-article-columns] {
+	margin: 0 0 1rem;
+	margin: var(--iam-article-columns-margin);
+}
+/* #endregion */
