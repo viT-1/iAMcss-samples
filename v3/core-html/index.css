@@ -59,7 +59,7 @@
 [iam-list] {
 	list-style-type: inherit;
 	margin: 0;
-	padding: 0 0 0 4ex;
+	padding: 0 1ex 0 2.5em;
 }
 
 [iam-list ~= "ordered"] {
@@ -87,7 +87,7 @@
 [iam-list] {
 	list-style-type: var(--iam-list-style-type, inherit);
 	margin: var(--iam-list-margin, 0);
-	padding: var(--iam-list-padding, 0 0 0 var(--text-space));
+	padding: var(--iam-list-padding, 0 1ex 0 var(--text-space));
 }
 
 [iam-li] {
