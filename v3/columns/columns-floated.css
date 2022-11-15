@@ -49,12 +49,12 @@
 /* #region iam-list с float элементами */
 [iam-list *= "floated cols:2"] {
 	/* В браузерах не поддерживающих переменные, ровно двух подколонок не будет */
-	--iam-li-width: 50%;
+	/* --iam-li-width: 50%; */
 }
 
 [iam-li ~= "floated"] {
 	float: left;
-	padding: 0 1ex;
+	width: 50%;
 }
 /* #endregion */
 /* #region правила связанные с контентом, а не структурой вёрстки */

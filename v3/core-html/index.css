@@ -74,7 +74,8 @@
 	--iam-list-padding: 0;
 	padding: 0;
 
-	--iam-li-padding: 0 1ex;
+	/* vars for nested elements */
+	--iam-li-padding: 0 1ex 0 var(--text-space);
 }
 
 [iam-list ~= "text"] {
@@ -87,10 +88,6 @@
 	list-style-type: var(--iam-list-style-type, inherit);
 	margin: var(--iam-list-margin, 0);
 	padding: var(--iam-list-padding, 0 0 0 var(--text-space));
-}
-
-[iam-li ~= "cnt"] {
-	padding: 0 1ex;
 }
 
 [iam-li] {
@@ -122,17 +119,18 @@
 	counter-set: cnt 0;
 }
 
-/* marker align to right */
-/*
-[iam-li ~= "cnt"]::before {
-	content: '(' counter(cnt);
-	direction: rtl;
-	display: inline-block;
-	padding: 0 .5ex;
-	width: 1em;
+[iam-li ~= "cnt"] {
+	padding: 0 1ex 0 2.5em;
+	position: relative;
 }
-*/
+
 [iam-li ~= "cnt"]::before {
+	display: block;
+	left: 0;
+	position: absolute;
+	text-align: right;
+	width: 2.2em;
+
 	content: counter(cnt, decimal-leading-zero) ') ';
 }
 /* #endregion */
