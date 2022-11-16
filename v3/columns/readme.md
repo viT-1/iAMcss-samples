@@ -4,6 +4,7 @@ without bundlers & PostCSS (autoprefixer), but with relict IE11.
 [OOCSS Lines & Grids](http://oocss.org/grids_docs.html)
 [List Style Recipes](https://css-tricks.com/list-style-recipes/) by Chris Coyier, 05.05.2020
 [::marker styling](https://css-tricks.com/almanac/selectors/m/marker/) by Geoff Graham, 23.04.2021 (not for ie11)
+[HTML5 article or section tag?](https://www.smashingmagazine.com/2020/01/html5-article-section/) by Bruce Lawson, 07.01.2020 [rus](https://webformyself.com/pochemu-vam-stoit-vybrat-element-html5-article-a-ne-section/) 
 
 Same height float columns clearfix articles:
 - [StackOverflow solutions](https://stackoverflow.com/questions/16317497/make-floating-divs-the-same-height#answer-65691558)

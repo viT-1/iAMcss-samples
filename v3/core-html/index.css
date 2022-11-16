@@ -1,13 +1,13 @@
-/* May be preprocessed and have one css file or nested folder with index.css to each entity */
+/*	May be preprocessed and have one css file or nested folder with index.css to each entity */
 
-/* #region :root or [iam-themes ~= some-theme] */
+/*	#region :root or [iam-themes ~= some-theme] */
 :root {
 	--text-space: 2.5rem;
 	--text-v-space: 1rem;
 	--text-margin: 0 0 var(--text-v-space);
 	--iam-p-font-size: inherit;
 }
-/* #endregion */
+/*	#endregion */
 
 [iam-article]
 , [iam-main-header] {
@@ -19,7 +19,7 @@
 	width: var(--iam-main-header-width, 640px);
 }
 
-/* #region iam-article */
+/*	#region iam-article */
 [iam-article] {
 	--iam-h1-font-size: 1.4rem;
 	--iam-h2-font-size: 1.2rem;
@@ -27,9 +27,9 @@
 	margin: var(--iam-article-margin, var(--text-v-space) auto);
 	width: var(--iam-article-width, 640px);
 }
-/* #endregion */
+/*	#endregion */
 
-/* #region iam-h */
+/*	#region iam-h */
 [iam-h] {
 	display: block; /* css-var fallback */
 	display: var(--iam-h-display, block);
@@ -50,9 +50,9 @@
 [iam-h ~= h2] {
 	--iam-h-font-size: var(--iam-h2-font-size, 1.1em);
 }
-/* #endregion */
+/*	#endregion */
 
-/* #region iam-p */
+/*	#region iam-p */
 [iam-p] {
 	font-size: var(--iam-p-font-size);
 	margin: 1rem 0;
@@ -60,10 +60,10 @@
 	text-indent: 0;
 	text-indent: var(--iam-p-text-indent, 0);
 }
-/* #endregion */
+/*	#endregion */
 
-/* #region iam-list */
-/* css-var fallbacks first */
+/*	#region iam-list */
+/*	css-var fallbacks first */
 [iam-list] {
 	list-style-type: inherit;
 	margin: 0;
@@ -91,7 +91,7 @@
 	--iam-li-end-content: '.';
 }
 
-/* applying css-vars last */
+/*	applying css-vars last */
 [iam-list] {
 	list-style-type: var(--iam-list-style-type, inherit);
 	margin: var(--iam-list-margin, 0);
@@ -105,11 +105,19 @@
 	display: (--iam-li-display, list-item);
 
 	font-size: var(--iam-li-font-size, var(--iam-p-font-size));
+	margin: 0;
+	margin: var(--iam-li-margin, 0);
 	padding: var(--iam-li-padding);
 	width: var(--iam-li-width);
 }
 
-/* #region iam-list counter logic */
+/*
+[iam-li]:last-of-type {
+	padding-bottom: var(--iam-li-last-padding-bottom, var(--text-v-space));
+}
+*/
+
+/*	#region iam-list counter logic */
 [iam-li ~= "cnt"] {
 	counter-increment: cnt;
 }
@@ -122,7 +130,7 @@
 	content: var(--iam-li-end-content);
 }
 
-/* #region iam-list with cnt css-counter (not only for ul/ol) */
+/*	#region iam-list with cnt css-counter (not only for ul/ol) */
 [iam-list ~= "cnt"]:first-of-type {
 	counter-set: cnt 0;
 }
@@ -141,5 +149,5 @@
 
 	content: counter(cnt) ') ';
 }
-/* #endregion */
-/* #endregion */
+/*	#endregion */
+/*	#endregion */

@@ -1,19 +1,12 @@
-<!--
-<iam-select>
-	<select>
-		<option value="3rd">Third</option>
-		<option value="4th">Fourth</option>
-	</select>
-</iam-select>
--->
 <html lang="ru">
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="../core-html/index.css" />
 	<link rel="stylesheet" type="text/css" href="index.css" />
-	<link rel="stylesheet" type="text/css" href="columns-floated.css" />
+	<link rel="stylesheet" type="text/css" href="columns-float.css" />
 	<link rel="stylesheet" type="text/css" href="columns-prop.css" />
 	<link rel="stylesheet" type="text/css" href="columns-flex.css" />
+	<link rel="stylesheet" type="text/css" href="columns-grid.css" />
 </head>
 <body iam-body="pg-columns">
 	<main iam-main>
@@ -25,22 +18,22 @@
 		<article iam-article="float-based">
 			<h2 iam-h="h2">CSS float property</h2>
 			<p iam-p>Пелевин, &laquo;<a href="http://pelevin.nov.ru/romans/pe-genp/index.html">Generation П</a>&raquo;:</p>
-			<div iam-floated-columns iam-article-cols="pelevin">
-				<ol iam-list="ordered" iam-floated-column="col:1/3" iam-article-col>
+			<div iam-float-cols iam-article-cols="pelevin">
+				<ol iam-list="ordered" iam-float-col="col:1/3" iam-article-col>
 					<li iam-li>Поколение «П»</li>
 					<li iam-li>Драфт Подиум</li>
 					<li iam-li>Тихамат-2</li>
 					<li iam-li>Три загадки Иштар</li>
 					<li iam-li>Бедные люди</li>
 				</ol>
-				<ol iam-list="ordered" iam-floated-column="col:1/3" iam-article-col start="6">
+				<ol iam-list="ordered" iam-float-col="col:1/3" iam-article-col start="6">
 					<li iam-li>Путь к себе</li>
 					<li iam-li>Homo Zapiens</li>
 					<li iam-li>Тихая Гавань</li>
 					<li iam-li>Вавилонская марка</li>
 					<li iam-li>Вовчик Малой</li>
 				</ol>
-				<ol iam-list="ordered" iam-floated-column="col:1/3" iam-article-col start="11">
+				<ol iam-list="ordered" iam-float-col="col:1/3" iam-article-col start="11">
 					<li iam-li>Институт пчеловодства</li>
 					<li iam-li>Облако в штанах</li>
 					<li iam-li>Исламский фактор</li>
@@ -50,25 +43,25 @@
 				</ol>
 			</div>
 			<p iam-p>Лем, &laquo;<a href="https://fantlab.ru/work173117">Сказки роботов</a>&raquo;, цикл рассказов:</p>
-			<div iam-floated-columns iam-article-cols="lem">
-				<ul iam-list iam-floated-column="col:1/4" iam-article-col="lem">
+			<div iam-float-cols iam-article-cols="lem">
+				<ul iam-list iam-float-col="col:1/4" iam-article-col="lem">
 					<li iam-li>Как Эрг Самовозбудитель бледнотика победил</li>
 					<li iam-li>Три электрыцаря</li>
 					<li iam-li>Урановые уши</li>
 					<li iam-li>Большая трёпка</li>
 				</ul>
-				<ul iam-list iam-floated-column="col:1/4" iam-article-col="lem">
+				<ul iam-list iam-float-col="col:1/4" iam-article-col="lem">
 					<li iam-li>Белая смерть</li>
 					<li iam-li>Как Микромил и&nbsp;Гигациан стали причиной туманности</li>
 					<li iam-li>Как был спасён мир</li>
 				</ul>
-				<ul iam-list iam-floated-column="col:1/4" iam-article-col="lem">
+				<ul iam-list iam-float-col="col:1/4" iam-article-col="lem">
 					<li iam-li>Друг Автоматея</li>
 					<li iam-li>Машина Трурля</li>
 					<li iam-li>Сказка о&nbsp;счётной машине, которая с&nbsp;драконом воевала</li>
 					<li iam-li>Два чудовища</li>
 				</ul>
-				<ul iam-list iam-floated-column="col:1/4" iam-article-col="lem">
+				<ul iam-list iam-float-col="col:1/4" iam-article-col="lem">
 					<li iam-li>Сокровища короля Бискаляра</li>
 					<li iam-li>Советники короля Гидропса</li>
 					<li iam-li>Король Глобарес и&nbsp;мудрецы</li>
@@ -79,21 +72,21 @@
 			<p iam-p>Без ol/ul и&nbsp;атрибута start, зато с css-счётчиками.
 				Правая колонка с&nbsp;float items по&nbsp;50% oт&nbsp;ширины.
 				В&nbsp;идеале должна быть сквозная нумерация, а не два списка, начинающихся с&nbsp;единицы.</p>
-			<div iam-floated-columns iam-article-cols="lem pirx-ru">
-				<div iam-list="cnt ordered" iam-floated-column="col:1/3" iam-article-col="lem">
-					<em iam-li="cnt">Испытание</em>
-					<em iam-li="cnt">Условный рефлекс</em>
-					<em iam-li="cnt">Патруль</em>
-					<em iam-li="cnt">Альбатрос</em>
-					<em iam-li="cnt">Терминус</em>
+			<div iam-float-cols iam-article-cols="lem pirx-ru">
+				<div iam-list="cnt ordered" iam-float-col="col:1/3" iam-article-col="lem">
+					<p iam-li="cnt">Испытание</p>
+					<p iam-li="cnt">Условный рефлекс</p>
+					<p iam-li="cnt">Патруль</p>
+					<p iam-li="cnt">Альбатрос</p>
+					<p iam-li="cnt">Терминус</p>
 				</div>
-				<div iam-list="cnt ordered floated cols:2" iam-floated-column="col:2/3" iam-article-col="lem">
-					<em iam-li="cnt floated">Охота на&nbsp;Сэта&shy;вра</em>
-					<em iam-li="cnt floated">Несчастный случай</em>
-					<em iam-li="cnt floated">Рассказ Пиркса</em>
-					<em iam-li="cnt floated">Дознание</em>
-					<em iam-li="cnt floated">Ананке</em>
-					<em iam-li="cnt floated">Роман «Фиаско»</em>
+				<div iam-list="cnt ordered float cols:2" iam-float-col="col:2/3" iam-article-col="lem">
+					<p iam-li="cnt float">Охота на&nbsp;Сэта&shy;вра</p>
+					<p iam-li="cnt float">Несчастный случай</p>
+					<p iam-li="cnt float">Рассказ Пиркса</p>
+					<p iam-li="cnt float">Дознание</p>
+					<p iam-li="cnt float">Ананке</p>
+					<p iam-li="cnt float">Роман «Фиаско»</p>
 				</div>
 			</div>
 		</article>
@@ -170,8 +163,8 @@
 			</div>
 			<p iam-p>Правая колонка подразбита с помощью CSS columns</p>
 			<p iam-p>Лем, &laquo;<a href="https://www.google.ru/books/edition/Tales_of_Pirx_the_Pilot/z_ustl8genAC">Рассказы о&nbsp;пилоте Пирксе</a>&raquo;:</p>
-			<ul iam-list iam-flex-cols iam-article-cols="lem pirx-en" lang="en">
-				<li iam-li iam-flex-col="li col:1/4" iam-article-col="lem">
+			<ul iam-flex-cols iam-article-cols="lem pirx-en" lang="en">
+				<li iam-flex-col="li col:1/4" iam-article-col="lem">
 					<header iam-flex-col-header>Tales of Pirx the Pilot</header>
 					<ul iam-list iam-flex-col-list>
 						<li iam-li>The Test</li>
@@ -181,7 +174,7 @@
 						<li iam-li>Terminus</li>
 					</ul>
 				</li>
-				<li iam-li iam-flex-col="li col:1/4" iam-article-col="lem">
+				<li iam-flex-col="li col:1/4" iam-article-col="lem">
 					<header iam-flex-col-header>More Tales of Pirx the Pilot</header>
 					<ul iam-list iam-flex-col-list>
 						<li iam-li>The Hunt</li>
@@ -191,7 +184,7 @@
 						<li iam-li>Ananke</li>
 					</ul>
 				</li>
-				<li iam-li iam-flex-col="li col:1/2" iam-article-col="lem">
+				<li iam-flex-col="li col:1/2" iam-article-col="lem">
 					<header iam-flex-col-header>Fiasco (novel)</header>
 					<ol iam-list="cnt ordered" iam-prop-cols="cols:2">
 						<li iam-li="cnt">Birnam Wood</li>
@@ -211,7 +204,45 @@
 						<li iam-li="cnt">Sodom and Gomorrah </li>
 						<li iam-li="cnt">The Quintans</li>
 					</ol>
+				</li>
 			</ul>
+		</article>
+		<article iam-article="grid-based">
+			<h2 iam-h="h2">CSS grid property</h2>
+			<p iam-p>Кларк, <a href="https://fantlab.ru/autor23#cycle_info">циклы произведений</a>:</p>
+			<div iam-grid-cols="cols:4" iam-article-cols="clarke">
+				<dl iam-grid-col="span:2" iam-article-col="clarke">
+					<dt iam-grid-col-header>Бросок на луну</dt>
+					<dd iam-list>
+						<p iam-li>Стартовая линия</p>
+						<p iam-li>Робин Гуд, член Королевского Общества</p>
+						<p iam-li>Зелёные пальцы</p>
+						<p iam-li>Весь этот блеск</p>
+						<p iam-li>Следите за космосом</p>
+						<p iam-li>Вопрос пребывания</p>
+					</dd>
+				</dl>
+				<dl iam-grid-col="pos:3" iam-article-col="clarke">
+					<dt iam-grid-col-header>Космическая одиссея</dt>
+					<dd iam-list="ordered">
+						<p iam-li>2001: Космическая одиссея</p>
+						<p iam-li>2010: Одиссея Два</p>
+						<p iam-li>2061: Одиссея Три</p>
+						<p iam-li>3001: Последняя Одиссея</p>
+					</dd>
+				</dl>
+				<dl iam-grid-col="pos:4" iam-article-col="clarke">
+					<dt iam-grid-col-header>По ту сторону неба</dt>
+					<dd iam-list>
+						<p iam-li>Специальный груз</p>
+						<p iam-li>Пернатый друг</p>
+						<p iam-li>Сделайте глубокий вдох</p>
+						<p iam-li>Космическая свобода</p>
+						<p iam-li>Случайная встреча</p>
+						<p iam-li>Зов звёзд</p>
+					</dd>
+				</dl>
+			</div>
 		</article>
 	</main>
 </body>
