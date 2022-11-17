@@ -36,7 +36,7 @@ td {
 	width: 25%
 }
 
-[iam-table-col ~= "col:1/4"] {
+[iam-table-col ~= "col:1/5"] {
 	width: 20%
 }
 
