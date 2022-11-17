@@ -1,6 +1,15 @@
 (function() {
 	var tableDataItems = [
 		{
+			link: 'https://vit-1.github.io/iAMcss-samples/v3/columns/',
+			name: 'columns',
+			descr: 'Full house of same height columns markup: float, columns, flex, and grid. Many BEM mixes!',
+			tags: {
+				markup: ['aria', 'html5'],
+				style: ['iam', 'vars'],
+			},
+		},
+		{
 			link: 'https://github.com/viT-1/systemjs-ts-es6',
 			name: 'systemjs-ts-es6',
 			descr: 'Starter project with Node, SystemJS and ES6 modules in browser support.',
