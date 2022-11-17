@@ -93,7 +93,7 @@
 		<article iam-article="columns-based">
 			<h2 iam-h="h2">CSS columns property</h2>
 			<p iam-p>Кларк, &laquo;<a href="https://fantlab.ru/work10363">Сказки «Белого оленя»</a>&raquo;:</p>
-			<ol iam-list="ordered" iam-prop-cols="cols:3" iam-article-cols="clarke">
+			<ol iam-list="ordered" iam-prop-cols="cols:3" iam-article-col="clarke" iam-article-cols="clarke">
 				<li iam-li>Тише, пожалуйста</li>
 				<li iam-li>Охота на&nbsp;крупную дичь</li>
 				<li iam-li>Патентная заявка</li>
@@ -113,7 +113,7 @@
 			</ol>
 			<p iam-p>В ie11 в верхнем варианте проблема: не&nbsp;отображается нумерация со&nbsp;второй колонки.
 				Потому используем нижний вариант, с&nbsp;установкой счётчика вручную.</p>
-			<ol iam-list="cnt ordered" iam-prop-cols="cols:3" iam-article-cols="clarke">
+			<ol iam-list="cnt ordered" iam-prop-cols="cols:3" iam-article-col="clarke" iam-article-cols="clarke">
 				<li iam-li="cnt">Тише, пожалуйста</li>
 				<li iam-li="cnt">Охота на&nbsp;крупную дичь</li>
 				<li iam-li="cnt">Патентная заявка</li>
@@ -165,7 +165,7 @@
 			<p iam-p>Лем, &laquo;<a href="https://www.google.ru/books/edition/Tales_of_Pirx_the_Pilot/z_ustl8genAC">Рассказы о&nbsp;пилоте Пирксе</a>&raquo;:</p>
 			<ul iam-flex-cols iam-article-cols="lem pirx-en" lang="en">
 				<li iam-flex-col="li col:1/4" iam-article-col="lem">
-					<header iam-flex-col-header>Tales of Pirx the Pilot</header>
+					<header iam-article-col-header>Tales of Pirx the Pilot</header>
 					<ul iam-list iam-flex-col-list>
 						<li iam-li>The Test</li>
 						<li iam-li>The Conditioned Reflex</li>
@@ -175,7 +175,7 @@
 					</ul>
 				</li>
 				<li iam-flex-col="li col:1/4" iam-article-col="lem">
-					<header iam-flex-col-header>More Tales of Pirx the Pilot</header>
+					<header iam-article-col-header>More Tales of Pirx the Pilot</header>
 					<ul iam-list iam-flex-col-list>
 						<li iam-li>The Hunt</li>
 						<li iam-li>The Accident</li>
@@ -185,7 +185,7 @@
 					</ul>
 				</li>
 				<li iam-flex-col="li col:1/2" iam-article-col="lem">
-					<header iam-flex-col-header>Fiasco (novel)</header>
+					<header iam-article-col-header>Fiasco (novel)</header>
 					<ol iam-list="cnt ordered" iam-prop-cols="cols:2">
 						<li iam-li="cnt">Birnam Wood</li>
 						<li iam-li="cnt">The Council </li>
@@ -212,7 +212,7 @@
 			<p iam-p>Кларк, <a href="https://fantlab.ru/autor23#cycle_info">циклы произведений</a>:</p>
 			<div iam-grid-cols="cols:4" iam-article-cols="clarke">
 				<dl iam-grid-col="span:2" iam-article-col="clarke">
-					<dt iam-grid-col-header>Бросок на луну</dt>
+					<dt iam-article-col-header>Бросок на луну</dt>
 					<dd iam-list>
 						<p iam-li>Стартовая линия</p>
 						<p iam-li>Робин Гуд, член Королевского Общества</p>
@@ -222,8 +222,8 @@
 						<p iam-li>Вопрос пребывания</p>
 					</dd>
 				</dl>
-				<dl iam-grid-col="pos:3" iam-article-col="clarke">
-					<dt iam-grid-col-header>Космическая одиссея</dt>
+				<dl iam-grid-col="col:3" iam-article-col="clarke">
+					<dt iam-article-col-header>Космическая одиссея</dt>
 					<dd iam-list="ordered">
 						<p iam-li>2001: Космическая одиссея</p>
 						<p iam-li>2010: Одиссея Два</p>
@@ -231,8 +231,8 @@
 						<p iam-li>3001: Последняя Одиссея</p>
 					</dd>
 				</dl>
-				<dl iam-grid-col="pos:4" iam-article-col="clarke">
-					<dt iam-grid-col-header>По ту сторону неба</dt>
+				<dl iam-grid-col="col:4" iam-article-col="clarke">
+					<dt iam-article-col-header>По ту сторону неба</dt>
 					<dd iam-list>
 						<p iam-li>Специальный груз</p>
 						<p iam-li>Пернатый друг</p>

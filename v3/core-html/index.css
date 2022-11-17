@@ -111,12 +111,6 @@
 	width: var(--iam-li-width);
 }
 
-/*
-[iam-li]:last-of-type {
-	padding-bottom: var(--iam-li-last-padding-bottom, var(--text-v-space));
-}
-*/
-
 /*	#region iam-list counter logic */
 [iam-li ~= "cnt"] {
 	counter-increment: cnt;

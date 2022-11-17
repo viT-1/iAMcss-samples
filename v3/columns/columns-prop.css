@@ -1,9 +1,5 @@
 [iam-prop-cols] {
 	column-gap: 1ex;
-	padding-top: 1ex;
-
-	/* Последний элемент списка может быть подвещен выше, потому и тут отступ */
-	padding-bottom: 1ex;
 }
 
 [iam-prop-cols ~= "cols:2"] {
