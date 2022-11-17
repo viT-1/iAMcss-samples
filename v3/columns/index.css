@@ -2,9 +2,14 @@
 /*	местный root для css-переменных */
 [iam-body ~= "pg-columns"] {
 	--iam-article-cols-margin: var(--text-margin);
-	--iam-main-header-width: 720px;
 	--iam-h-font-family: Consolas, Courier New, monospace;
 	--iam-p-text-indent: var(--text-space);
+}
+
+[iam-header ~= "main"]
+, [iam-nav ~= "main"] {
+	margin: auto auto 1em auto;
+	width: 720px;
 }
 
 /*	#region iam-article */

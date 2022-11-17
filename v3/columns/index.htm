@@ -11,12 +11,22 @@
 </head>
 <body iam-body="pg-columns">
 	<main iam-main>
-		<header iam-main-header>
+		<header iam-header="main">
 			<h1 iam-h="h1">Crossbrowser columns examples</h1>
 			<p iam-p>Стандартные отступы срегулированы вровень с&nbsp;text-indent параграфов.
 				Примеры с активным применением БЭМ-миксования.</p>
 		</header>
-		<article iam-article="float-based">
+		<nav iam-nav="main" aria-label="Main">
+			<p iam-p>Колонки свёрстаны с помощью следующих технологий:</p>
+			<p iam-list="ordered cnt ">
+				<a iam-li="cnt" href="#float-based">CSS float property</a>
+				<a iam-li="cnt" href="#columns-based">CSS columns property</a>
+				<a iam-li="cnt" href="#flex-based">CSS flex property</a>
+				<a iam-li="cnt" href="#grid-based">CSS grid property</a>
+				<a iam-li="cnt" href="#table-based">Good old table</a>
+			</p>
+		</nav>
+		<article iam-article id="float-based">
 			<h2 iam-h="h2">CSS float property</h2>
 			<p iam-p>Пелевин, &laquo;<a href="http://pelevin.nov.ru/romans/pe-genp/index.html">Generation П</a>&raquo;:</p>
 			<div iam-float-cols iam-article-cols="pelevin">
@@ -91,7 +101,7 @@
 				</div>
 			</div>
 		</article>
-		<article iam-article="columns-based">
+		<article iam-article id="columns-based">
 			<h2 iam-h="h2">CSS columns property</h2>
 			<p iam-p>Кларк, &laquo;<a href="https://fantlab.ru/work10363">Сказки «Белого оленя»</a>&raquo;:</p>
 			<ol iam-list="ordered" iam-prop-cols="cols:3" iam-article-col="clarke" iam-article-cols="clarke">
@@ -133,7 +143,7 @@
 				<li iam-li="cnt">Луч смерти</li>
 			</ol>
 		</article>
-		<article iam-article="flex-based">
+		<article iam-article id="flex-based">
 			<h2 iam-h="h2">CSS flex property</h2>
 			<p iam-p>Вариант с тремя ol и использованием атрибута start.</p>
 			<p iam-p>Пелевин, &laquo;<a href="http://pelevin.nov.ru/romans/pe-jisn/index.html">Жизнь насекомых</a>&raquo;:</p>
@@ -208,7 +218,7 @@
 				</li>
 			</ul>
 		</article>
-		<article iam-article="grid-based">
+		<article iam-article id="grid-based">
 			<h2 iam-h="h2">CSS grid property</h2>
 			<p iam-p>Кларк, <a href="https://fantlab.ru/autor23#cycle_info">циклы произведений</a>:</p>
 			<div iam-grid-cols="cols:4" iam-article-cols="clarke">
@@ -245,7 +255,7 @@
 				</dl>
 			</div>
 		</article>
-		<article iam-article="table-based">
+		<article iam-article id="table-based">
 			<code iam-h="h2">&lt;table cellspacing=0 cellpadding=7 border=7 align=left width=auto&gt; ;))</code>
 			<table iam-table iam-article-cols="clarke">
 				<colgroup>
