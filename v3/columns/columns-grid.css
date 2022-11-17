@@ -1,6 +1,8 @@
 [iam-grid-cols] {
 	display: -ms-grid;
 	display: grid;
+
+	border-left: solid 1ex;
 }
 
 [iam-grid-cols ~= "cols:3"] {
@@ -18,11 +20,19 @@
 	grid-template-columns: repeat(5, 20%);
 }
 
-[iam-grid-col ~= "col:3"] {
+[iam-grid-col] {
+	border-right: solid 1ex;
+}
+
+[iam-grid-col]:nth-child(2) {
+	-ms-grid-column: 2;
+}
+
+[iam-grid-col]:nth-child(3) {
 	-ms-grid-column: 3;
 }
 
-[iam-grid-col ~= "col:4"] {
+[iam-grid-col]:nth-child(4) {
 	-ms-grid-column: 4;
 }
 

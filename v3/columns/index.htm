@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="columns-prop.css" />
 	<link rel="stylesheet" type="text/css" href="columns-flex.css" />
 	<link rel="stylesheet" type="text/css" href="columns-grid.css" />
+	<link rel="stylesheet" type="text/css" href="columns-table.css" />
 </head>
 <body iam-body="pg-columns">
 	<main iam-main>
@@ -211,6 +212,26 @@
 			<h2 iam-h="h2">CSS grid property</h2>
 			<p iam-p>Кларк, <a href="https://fantlab.ru/autor23#cycle_info">циклы произведений</a>:</p>
 			<div iam-grid-cols="cols:4" iam-article-cols="clarke">
+				<dl iam-grid-col iam-article-col="clarke">
+					<dt iam-article-col-header>Космическая одиссея</dt>
+					<dd iam-list="ordered">
+						<p iam-li>2001: Космическая одиссея</p>
+						<p iam-li>2010: Одиссея Два</p>
+						<p iam-li>2061: Одиссея Три</p>
+						<p iam-li>3001: Последняя Одиссея</p>
+					</dd>
+				</dl>
+				<dl iam-grid-col iam-article-col="clarke">
+					<dt iam-article-col-header>По ту сторону неба</dt>
+					<dd iam-list>
+						<p iam-li>Специальный груз</p>
+						<p iam-li>Пернатый друг</p>
+						<p iam-li>Сделайте глубокий вдох</p>
+						<p iam-li>Космическая свобода</p>
+						<p iam-li>Случайная встреча</p>
+						<p iam-li>Зов звёзд</p>
+					</dd>
+				</dl>
 				<dl iam-grid-col="span:2" iam-article-col="clarke">
 					<dt iam-article-col-header>Бросок на луну</dt>
 					<dd iam-list>
@@ -222,27 +243,64 @@
 						<p iam-li>Вопрос пребывания</p>
 					</dd>
 				</dl>
-				<dl iam-grid-col="col:3" iam-article-col="clarke">
-					<dt iam-article-col-header>Космическая одиссея</dt>
-					<dd iam-list="ordered">
-						<p iam-li>2001: Космическая одиссея</p>
-						<p iam-li>2010: Одиссея Два</p>
-						<p iam-li>2061: Одиссея Три</p>
-						<p iam-li>3001: Последняя Одиссея</p>
-					</dd>
-				</dl>
-				<dl iam-grid-col="col:4" iam-article-col="clarke">
-					<dt iam-article-col-header>По ту сторону неба</dt>
-					<dd iam-list>
-						<p iam-li>Специальный груз</p>
-						<p iam-li>Пернатый друг</p>
-						<p iam-li>Сделайте глубокий вдох</p>
-						<p iam-li>Космическая свобода</p>
-						<p iam-li>Случайная встреча</p>
-						<p iam-li>Зов звёзд</p>
-					</dd>
-				</dl>
 			</div>
+		</article>
+		<article iam-article="table-based">
+			<code iam-h="h2">&lt;table cellspacing=0 cellpadding=7 border=7 align=left width=auto&gt; ;))</code>
+			<table iam-table iam-article-cols="clarke">
+				<colgroup>
+					<col iam-table-col="col:1/3" iam-article-col="clarke" span="2" />
+					<col iam-table-col="col:1/6" iam-article-col="clarke" span="2" />
+				</colgroup>
+				<thead>
+					<tr iam-table-row="main">
+						<th iam-article-col-header="main" colspan="4">
+							Кларк, <a href="https://fantlab.ru/autor23#cycle_info">циклы произведений</a>
+						</th>
+					</tr>
+					<tr iam-table-row>
+						<th iam-article-col-header>По ту сторону неба</th>
+						<th iam-article-col-header>Космическая одиссея</th>
+						<th iam-article-col-header>Приход ночи</th>
+						<th iam-article-col-header>Рама</th>
+					</tr>
+				</thead>
+				<tbody iam-table-body><tr iam-table-row>
+					<td>
+						<ul iam-list>
+							<li iam-li>Специальный груз</li>
+							<li iam-li>Пернатый друг</li>
+							<li iam-li>Сделайте глубокий вдох</li>
+							<li iam-li>Космическая свобода</li>
+							<li iam-li>Случайная встреча</li>
+							<li iam-li>Зов звёзд</li>
+						</ul>
+					</td>
+					<td>
+						<ol iam-list="ordered">
+							<li iam-li>2001: Космическая одиссея</li>
+							<li iam-li>2010: Одиссея Два</li>
+							<li iam-li>2061: Одиссея Три</li>
+							<li iam-li>3001: Последняя Одиссея</li>
+						</ol>
+					</td>
+					<td>
+						<ul iam-list>
+							<li iam-li>Да не настанет ночь</li>
+							<li iam-li>Город и&nbsp;звёзды</li>
+							<li iam-li>По ту сторону ночи</li>
+						</ul>
+					</td>
+					<td>
+						<ul iam-list>
+							<li iam-li>Свидание с Рамой</li>
+							<li iam-li>Рама II</li>
+							<li iam-li>Сад Рамы</li>
+							<li iam-li>Рама явленный</li>
+						</ul>
+					</td>
+				</tr></tbody>
+			</table>
 		</article>
 	</main>
 </body>

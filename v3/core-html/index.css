@@ -33,6 +33,8 @@
 [iam-h] {
 	display: block; /* css-var fallback */
 	display: var(--iam-h-display, block);
+	font-family: inherit;
+	font-family: var(--iam-h-font-family, inherit);
 	font-size: var(--iam-h-font-size);
 	font-style: normal;
 	font-style: var(--iam-h-font-style, normal);
@@ -44,11 +46,13 @@
 }
 
 [iam-h ~= h1] {
-	--iam-h-font-size: var(--iam-h1-font-size, 1.2em);
+	font-size: 1.2em;
+	--iam-h-font-size: var(--iam-h1-font-size, 1.2rem);
 }
 
 [iam-h ~= h2] {
-	--iam-h-font-size: var(--iam-h2-font-size, 1.1em);
+	font-size: 1.1em;
+	--iam-h-font-size: var(--iam-h2-font-size, 1.1rem);
 }
 /*	#endregion */
 
