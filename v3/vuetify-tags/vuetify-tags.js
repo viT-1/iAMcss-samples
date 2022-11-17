@@ -31,6 +31,19 @@
 			},
 		},
 		{
+			link: 'https://github.com/viT-1/systemjs-babel-es6-vue',
+			name: 'systemjs-babel-es6-vue',
+			descr: 'Pet project for bundling es-modules for modern browsers and SystemJs-modules'
+			+ ' for IE10 (and other). No Webpack or Rollup using, but Babel. Used Jest with esm support!'
+			+ ' Using tsconfig as standard declaring way of aliases.',
+			tags: {
+				markup: ['html4', 'linthtml'],
+				node: ['esm', 'babel', 'systemjs', 'jest'],
+				script: ['airbnb', 'es6', 'esm', 'eslint', 'vue'],
+				style: ['iam', 'skins', 'stylelint'],
+			},
+		},
+		{
 			link: 'https://github.com/viT-1/ngUsers/tree/develop',
 			name: 'ngUsers',
 			descr: 'SPA with user cards',
@@ -162,6 +175,7 @@
 	var tags = {
 		markup: [
 			{ label: 'aria', describe: 'В вёрстке используются ARIA-атрибуты' },
+			{ label: 'linthtml', describe: 'Перед сборкой тестируется вёрстка на custom-правила' },
 			{ label: 'html4' },
 			{ label: 'html5' },
 			{ label: 'svg', describe: 'Когда svg в качестве основного контента (не оформление)' },
@@ -169,8 +183,9 @@
 		],
 		node: [
 			{ label: 'allure', describe: 'Web-отчёты о тестировании' },
+			{ label: 'babel', describe: 'js-переводчик из одного в другое (позволяет миновать быстро устаревающие сборщики)' },
 			{ label: 'esm', describe: 'ECMAScript модули (не используется require)' },
-			{ label: 'gulp' },
+			{ label: 'gulp', describe: 'Самый гибкий сборщик кода'},
 			{ label: 'jest', describe: 'Тестирование кода вне браузера' },
 			{ label: 'rollup' },
 			{ label: 'selenium' },
@@ -179,7 +194,7 @@
 			{ label: 'tsc', describe: 'В качестве сборщика только интерпретартор TypeScript' },
 			{ label: 'ttsc', describe: 'Для трансформации ts в js используются дополнительные плагины' },
 			{ label: 'webdriverio', describe: 'Тестирование с имитацией кликов браузера' },
-			{ label: 'webpack' },
+			{ label: 'webpack', describe: 'Когда-то самый популярный сборщик кода' },
 		],
 		script: [
 			{ label: 'airbnb' },
@@ -207,6 +222,7 @@
 			{ label: 'normalize' },
 			{ label: 'print', describe: 'Настройка отображения для печати на принтере (Print preview)' },
 			{ label: 'skins', describe: 'Возможность изменять цветовую гамму' },
+			{ label: 'stylelint', describe: 'Самый популярный линтер для CSS' },
 			{ label: 'stylus', describe: 'Единственный in-browser CSS-процессор с препроцессорной поддержкой импорта JSON' },
 			{ label: 'svg' },
 			{ label: 'vars', describe: 'css variables' },
