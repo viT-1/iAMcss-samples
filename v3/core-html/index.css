@@ -15,14 +15,14 @@ main {
 }
 /*	#endregion */
 
-[iam-nav] {
+[iam-nav]
+, [iam-nav-item] {
 	display: block;
 }
 
 [iam-nav-item] {
-	display: block;
 	margin: 0 0 1em;
-	margin: var(--text-margin);
+	margin: var(--iam-nav-item-margin, var(--text-margin));
 }
 
 /*	#region iam-article */
@@ -30,10 +30,8 @@ main {
 	--iam-h1-font-size: 1.4rem;
 	--iam-h2-font-size: 1.2rem;
 
-	margin: auto; /* css-var fallback */
-	margin: var(--iam-article-margin, var(--text-v-space) auto);
-
-	width: var(--iam-article-width, 100%);
+	margin: 0 0 1em;
+	margin: var(--iam-article-margin, var(--text-margin));
 }
 /*	#endregion */
 

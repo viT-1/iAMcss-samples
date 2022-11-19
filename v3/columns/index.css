@@ -6,20 +6,18 @@
 	--iam-p-text-indent: var(--text-space);
 }
 
-[iam-main-header]
-, [iam-main-nav] {
-	margin: auto auto 1em auto;
+/*	#region iam-pg */
+[iam-pg ~= "columns"] {
 	width: 720px;
 }
+
+[iam-pg ~= "columns"]
+, [iam-pg-nav] {
+	margin: auto auto 1rem auto;
+}
+/*	#endregion */
 
 /*	#region iam-article */
-/*	Правильней задать соответствующие css-vars в [iam-body ~= "pg-columns"],
-**	также, как это сделано с iam-main-header
-*/
-[iam-article] {
-	width: 720px;
-}
-
 /*	#region iam-article-cols css-var fallback */
 [iam-article-col]:nth-child(2n) {
 	color: InfoBackground;

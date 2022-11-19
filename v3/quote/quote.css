@@ -5,9 +5,8 @@
 }
 /*	#endregion */
 
-/*	#region iam-main */
-[iam-main]
-, [iam-main-article]  {
+/*	#region iam-pg */
+[iam-pg ~= "quote"] {
 	margin: auto auto 1rem auto;
 	width: 500px;
 }
