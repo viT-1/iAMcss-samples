@@ -9,6 +9,12 @@
 }
 /*	#endregion */
 
+/*	#region html5 for old browsers */
+main {
+	display: block;
+}
+/*	#endregion */
+
 [iam-nav] {
 	display: block;
 }
@@ -27,8 +33,7 @@
 	margin: auto; /* css-var fallback */
 	margin: var(--iam-article-margin, var(--text-v-space) auto);
 
-	width: 640px; /* css-var fallback */
-	width: var(--iam-article-width, 640px);
+	width: var(--iam-article-width, 100%);
 }
 /*	#endregion */
 

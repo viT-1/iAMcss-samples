@@ -6,8 +6,8 @@
 	--iam-p-text-indent: var(--text-space);
 }
 
-[iam-header ~= "main"]
-, [iam-nav ~= "main"] {
+[iam-main-header]
+, [iam-main-nav] {
 	margin: auto auto 1em auto;
 	width: 720px;
 }

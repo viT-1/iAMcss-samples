@@ -1,18 +1,25 @@
-/* #region redefined :root variables pf core-html & special sample variables */
-/* Redefining variables is a strict way than redefining selector's rules! */
+/*	#region redefined :root variables pg core-html & special sample variables */
+/*	Redefining variables is a strict way than redefining selector's rules! */
 [iam-body ~= "pg-quote"] {
-	--iam-article-width: 500px;
 	--iam-p-text-indent: var(--text-space);
 }
-/* #endregion */
+/*	#endregion */
 
-/* #region mod selectors should define variables */
+/*	#region iam-main */
+[iam-main]
+, [iam-main-article]  {
+	margin: auto auto 1rem auto;
+	width: 500px;
+}
+/*	#endregion */
+
+/*	#region mod selectors should define variables */
 [iam-q] {
 	--iam-p-font-size: larger;
 }
-/* #endregion */
+/*	#endregion */
 
-/* #region iam-q */
+/*	#region iam-q */
 [iam-q] {
 	background: #ccc;
 	background: var(--iam-q-background, #ccc);
@@ -34,4 +41,4 @@
 	content: '\00a9';
 	font-style: italic;
 }
-/* #endregion */
+/*	#endregion */
