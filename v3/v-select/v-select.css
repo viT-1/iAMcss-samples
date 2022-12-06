@@ -1,5 +1,13 @@
-[iam-select] {
+[iam-p] {
+	margin: 0;
+}
+
+[iam-input ~= indexes]
+, [iam-select] {
+	box-sizing: border-box;
+	margin-top: .5ex;
 	min-width: 120px;
+	width: 150px;
 }
 
 [iam-select-option]:hover {
@@ -16,4 +24,5 @@
 [iam-select-option ~= disabled]
 , [iam-select-option ~= disabled]:hover {
 	color: gray;
+	cursor: not-allowed;
 }
