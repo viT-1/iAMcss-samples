@@ -62,7 +62,7 @@
 		const retSelected = [];
 
 		arrOptions.forEach(function (opt) {
-			if (opt.selected) {
+			if (opt.selected && !opt.hasAttribute('placeholder')) {
 				retSelected.push(opt.index);
 			}
 		});
@@ -142,13 +142,15 @@
 			/** @type {number[]} */
 			var selectedIndexes = numArrayFromString(binding.value, multipleSeparator);
 
-			if (typeof selectedIndexes == 'undefined') {
+			if (selectedIndexes.length == 0) {
 				selectedIndexes = getSelectedIndexes(el);
+				if (selectedIndexes.length) {
+					emit(vnode, 'select-change', selectedIndexes);
+				}
 			}
-			else {
-				// force option attribute "selected" according to binding data
-				setSelectedByIndexes(el, selectedIndexes);
-			}
+
+			// force option attribute "selected" according to binding data
+			setSelectedByIndexes(el, selectedIndexes);
 
 			el.setAttribute(attDataActiveName, selectedIndexes);
 			el.setAttribute(cssPrefix + blockName, selMultipleMod + ':' + el.multiple);
@@ -218,7 +220,7 @@
 		el: '[iam-app]',
 		data: function () {
 			return {
-				selIndexes: '2',
+				selIndexes: '',
 			};
 		},
 		methods: {

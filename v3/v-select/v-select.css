@@ -10,11 +10,6 @@
 	width: 150px;
 }
 
-[iam-select-option]:hover {
-	background: #1882A8;
-	color: white;
-}
-
 [iam-select]
 , [iam-select-option]
 , [iam-select-option ~= disabled]:hover {
