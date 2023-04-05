@@ -1,6 +1,17 @@
 (function() {
 	var tableDataItems = [
 		{
+			link: 'https://vit-1.github.io/homm/3-sod-ru.xml',
+			name: 'homm',
+			descr: 'Heroes of Might & Magic spellbook. Works from the box, even without a web-server & NodeJs (with help of xsl:include). ie11 supported.',
+			tags: {
+				markup: ['html5', 'xml'],
+				style: ['iam'],
+				script: ['es5', 'vue', 'vuex', 'vue-router'],
+				node: ['jasmine', 'tdd']
+			},
+		},
+		{
 			link: 'https://vit-1.github.io/iAMcss-samples/v3/columns/',
 			name: 'columns',
 			descr: 'Full house of same height columns markup: float, columns, flex, and grid. Many BEM mixes!',
@@ -186,6 +197,7 @@
 			{ label: 'babel', describe: 'js-переводчик из одного в другое (позволяет миновать быстро устаревающие сборщики)' },
 			{ label: 'esm', describe: 'ECMAScript модули (не используется require)' },
 			{ label: 'gulp', describe: 'Самый гибкий сборщик кода'},
+			{ label: 'jasmine', describe: 'Тестирование кода в браузере' },
 			{ label: 'jest', describe: 'Тестирование кода вне браузера' },
 			{ label: 'rollup' },
 			{ label: 'selenium' },
@@ -210,6 +222,7 @@
 			{ label: 'ts', describe: 'TypeScript' },
 			{ label: 'vue' },
 			{ label: 'vue@decor', describe: 'Написание компонент vue в виде es6 классов через vue-property-decorator' },
+			{ label: 'vue-router', describe: 'Имитация серверной смены веб-страниц' },
 			{ label: 'vuex' },
 		],
 		style: [
